@@ -13,6 +13,7 @@ const config: Config = {
 			},
 			colors: {
 				"body-grey": "#171717",
+				"body-light-grey": "#454545",
 				"nice-blue": "#6088f0",
 			},
 			fontFamily: {

@@ -3,21 +3,28 @@ import ClientWord from "./components/ClientWord";
 
 const Home: React.FC = () => {
 	const words = [
-		"lobby.",
-		"home.",
-		"arena.",
-		"dungeon.",
-		"server.",
-		"environment.",
-		"node.",
-		"interface.",
+		"portfolio",
+		"lobby",
+		"home",
+		"arena",
+		"dungeon",
+		"server",
+		"environment",
+		"node",
+		"interface",
 	];
 
 	return (
 		<main className="font-body p-8">
 			<h1 className="text-4xl mb-8">👋🏼 Hey, I'm Ahmed.</h1>
 			<p className="mb-6">
-				Welcome to my <ClientWord initial="portfolio!" words={words} />
+				Welcome to my{" "}
+				<ClientWord
+					initial="portfolio"
+					words={words}
+					className="underline cursor-pointer transition-all duration-200 ease-in-out hover:text-nice-blue"
+				/>
+				!
 			</p>
 			<p className="mb-6">
 				I'm a second year Computer Engineering student at McMaster

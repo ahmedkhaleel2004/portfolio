@@ -4,10 +4,15 @@ import React, { useState } from "react";
 
 interface ClientWordProps {
 	initial: string;
-	words: Array<string>; // Optional if you don't always pass it
+	words: Array<string>;
+	className: string;
 }
 
-const ClientWord: React.FC<ClientWordProps> = ({ initial, words }) => {
+const ClientWord: React.FC<ClientWordProps> = ({
+	initial,
+	words,
+	className,
+}) => {
 	const [currentWord, setCurrentWord] = useState(initial);
 	// event handler
 	const changeWord = () => {
@@ -23,10 +28,7 @@ const ClientWord: React.FC<ClientWordProps> = ({ initial, words }) => {
 		}
 	};
 	return (
-		<span
-			className="cursor-pointer transition-all duration-200 ease-in-out hover:text-nice-blue"
-			onClick={changeWord}
-		>
+		<span className={className} onClick={changeWord}>
 			{currentWord}
 		</span>
 	);
