@@ -7,7 +7,18 @@ const config: Config = {
 		"./app/**/*.{js,ts,jsx,tsx,mdx}",
 	],
 	theme: {
-		extend: {},
+		extend: {
+			spacing: {
+				customNav: "7.25rem", // Add custom spacing
+			},
+			colors: {
+				"body-grey": "#171717",
+				"nice-blue": "#6088f0",
+			},
+			fontFamily: {
+				body: ["Roboto Mono"],
+			},
+		},
 	},
 	plugins: [],
 };
