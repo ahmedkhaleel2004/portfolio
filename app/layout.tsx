@@ -48,9 +48,11 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en" className={`${roboto_mono.variable}`}>
-			<body>
-				<Navbar />
-				{children}
+			<body className="min-h-screen bg-body-grey text-white">
+				<div className="pt-40 mx-auto max-w-2xl flex">
+					<Navbar />
+					{children}
+				</div>
 				<Footer />
 			</body>
 		</html>
