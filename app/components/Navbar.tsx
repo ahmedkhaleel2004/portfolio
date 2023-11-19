@@ -1,5 +1,5 @@
 import React from "react";
-import NavButton from "./NavButton";
+import ClientNavButton from "./ClientNavButton";
 
 const Navbar = () => {
 	const buttons = [
@@ -15,7 +15,7 @@ const Navbar = () => {
 		<nav className="flex justify-between p-4">
 			<div className="flex flex-col space-y-4 mt-32">
 				{buttons.map((button) => (
-					<NavButton
+					<ClientNavButton
 						key={button.name}
 						text={button.name}
 						path={button.path}

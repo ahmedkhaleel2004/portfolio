@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const NavButton: React.FC<{ text: string; path: string }> = ({
+const ClientNavButton: React.FC<{ text: string; path: string }> = ({
 	text,
 	path,
 }) => {
@@ -23,4 +23,4 @@ const NavButton: React.FC<{ text: string; path: string }> = ({
 	);
 };
 
-export default NavButton;
+export default ClientNavButton;

@@ -5,8 +5,33 @@ import Footer from "./components/Footer";
 import { Roboto_Mono } from "next/font/google";
 
 export const metadata: Metadata = {
+	metadataBase: new URL("http://localhost:3000/"), // CHANGE FOR PRODUCTION
 	title: "Ahmed Khaleel",
-	description: "Software Engineering Portfolio",
+	description:
+		"Ahmed Khaleel's portfolio, featuring projects in software development.",
+	keywords: [
+		"Python",
+		"C",
+		"C++",
+		"Engineering",
+		"Software Engineer",
+		"Full-Stack Development",
+		"Web Development",
+		"Machine Learning",
+		"Data Scientist",
+		"Student",
+		"Technology",
+		"Tech",
+		"Portfolio",
+	],
+	authors: [{ name: "Ahmed Khaleel" }],
+	openGraph: {
+		type: "website",
+		title: "Ahmed Khaleel - Software Engineer",
+		description:
+			"Explore Ahmed Khaleel's Software Engineering Portfolio including unique projects and his timeline.",
+		images: [{ url: "/image.png" }], // CHANGE TO SCREENSHOT OF HOMEPAGE
+	},
 };
 
 const roboto_mono = Roboto_Mono({
@@ -24,33 +49,6 @@ export default function RootLayout({
 	return (
 		<html lang="en" className={`${roboto_mono.variable}`}>
 			<body>
-				<meta
-					name="description"
-					content="Ahmed Khaleel's portfolio, featuring projects in software development."
-				/>
-				<meta
-					name="keywords"
-					content="Python, C, C++, Engineering, Software Engineer, Full-Stack Development, Web Development, Machine Learning, Data Scientist, Student, Technology, Tech, Portfolio"
-				/>
-				<meta
-					property="og:title"
-					content="Ahmed Khaleel - Software Engineer"
-				/>
-				<meta
-					property="og:description"
-					content="Explore Ahmed Khaleel's Software Engineering Portfolio including unique projects and his timeline."
-				/>
-				<meta property="og:type" content="website" />
-				{/*<meta
-					property="og:url"
-					content="https://www.johndoeportfolio.com"
-				/>
-				<meta
-					property="og:image"
-					content="https://www.johndoeportfolio.com/og-image.jpg"
-				/>*/}
-
-				{/* wrap each page in navbar and footer*/}
 				<Navbar />
 				{children}
 				<Footer />
