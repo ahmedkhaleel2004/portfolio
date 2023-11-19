@@ -16,7 +16,7 @@ const config: Config = {
 				"nice-blue": "#6088f0",
 			},
 			fontFamily: {
-				body: ["Roboto Mono"],
+				body: ["var(--font-roboto-mono)"],
 			},
 		},
 	},

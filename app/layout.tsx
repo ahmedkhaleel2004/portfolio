@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-import Head from "next/head";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-
-const inter = Inter({ subsets: ["latin"] });
+import { Roboto_Mono } from "next/font/google";
 
 export const metadata: Metadata = {
 	title: "Ahmed Khaleel",
 	description: "Software Engineering Portfolio",
 };
+
+const roboto_mono = Roboto_Mono({
+	weight: "400",
+	subsets: ["latin"],
+	display: "swap",
+	variable: "--font-roboto-mono",
+});
 
 export default function RootLayout({
 	children,
@@ -18,8 +22,8 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en">
-			<body className={inter.className}>
+		<html lang="en" className={`${roboto_mono.variable}`}>
+			<body>
 				<meta
 					name="description"
 					content="Ahmed Khaleel's portfolio, featuring projects in software development."
