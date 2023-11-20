@@ -12,6 +12,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@react-pdf/renderer": "^3.1.14",
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18"
@@ -19,7 +20,7 @@
   "devDependencies": {
     "@icons-pack/react-simple-icons": "^9.1.0",
     "@types/node": "^20",
-    "@types/react": "^18",
+    "@types/react": "^18.2.37",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",

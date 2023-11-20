@@ -23,7 +23,7 @@ const config: Config = {
 			colors: {
 				"body-grey": "#171717",
 				"body-light-grey": "#454545",
-				"nice-blue": "#6088f0",
+				"nice-blue": "#61a8ff",
 			},
 			fontFamily: {
 				body: ["var(--font-roboto-mono)"],
