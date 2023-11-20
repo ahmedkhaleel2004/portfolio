@@ -6,14 +6,13 @@ const Navbar = () => {
 		{ name: "Home", path: "/" },
 		{ name: "About", path: "/about" },
 		{ name: "Projects", path: "/projects" },
-		{ name: "Experience", path: "/experience" },
 		{ name: "Timeline", path: "/timeline" },
 		{ name: "Resume", path: "/resume" },
 	];
 
 	return (
 		<nav className="flex justify-between pl-2">
-			<div className="flex flex-col space-y-4 mt-28">
+			<div className="flex flex-col space-y-4 mt-32">
 				{buttons.map((button) => (
 					<ClientNavButton
 						key={button.name}
