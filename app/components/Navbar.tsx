@@ -12,8 +12,8 @@ const Navbar = () => {
 	];
 
 	return (
-		<nav className="flex justify-between p-4">
-			<div className="flex flex-col space-y-4 mt-24">
+		<nav className="flex justify-between pl-2">
+			<div className="flex flex-col space-y-4 mt-28">
 				{buttons.map((button) => (
 					<ClientNavButton
 						key={button.name}

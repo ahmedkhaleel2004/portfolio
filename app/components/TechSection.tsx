@@ -62,7 +62,7 @@ const TechSection: React.FC<{ activeSection: string }> = ({
 	);
 
 	return (
-		<div className={`transition-opacity ${activeSection}`}>
+		<div className={`transition-opacity min-h-[168px] ${activeSection}`}>
 			{activeSection === "front-end" && renderIcons(frontEndIcons)}
 			{activeSection === "back-end" && renderIcons(backEndIcons)}
 			{activeSection === "ml-other" && renderIcons(mlOtherIcons)}
