@@ -13,9 +13,9 @@ const About: React.FC = () => {
 	];
 	const computerwords = [
 		"tech support",
-		"IT guy",
 		"digital guru",
 		"computer expert",
+		"IT guy",
 		"sysadmin",
 		"technician",
 	];
@@ -30,7 +30,7 @@ const About: React.FC = () => {
 		"run marathons 🏃🏼‍♂️",
 		"climb mountains 🗻",
 	];
-	const techwords = ["Technology", "Stacks", "Services"];
+	const techwords = ["Technology", "Stacks", "Services", "Tools"];
 	return (
 		<main className="font-body p-8">
 			<span className="text-3xl">📝</span>{" "}
@@ -67,7 +67,7 @@ const About: React.FC = () => {
 				className="underline text-3xl p- cursor-pointer transition-all duration-200 ease-in-out hover:text-nice-blue"
 			/>
 			<p className="mt-8">
-				I'm quite a multi-disciplinary engineer having dabbled in all
+				I'm quite the multi-disciplinary engineer having dabbled in all
 				the fun stuff:
 			</p>
 			<ClientTechView />

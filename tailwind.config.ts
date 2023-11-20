@@ -8,6 +8,15 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
+			keyframes: {
+				slideDown: {
+					"0%": { opacity: "0", transform: "translateY(-1rem)" },
+					"100%": { opacity: "1", transform: "translateY(0)" },
+				},
+			},
+			animation: {
+				slideDown: "slideDown 0.5s ease-out forwards",
+			},
 			spacing: {
 				customNav: "7.25rem", // Add custom spacing
 			},
