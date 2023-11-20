@@ -99,7 +99,7 @@ const About: React.FC = () => {
 				className="underline text-3xl cursor-pointer transition-all duration-200 ease-in-out hover:text-nice-blue"
 			/>
 			<p className="mt-8">
-				I'm a sophomore at McMaster university where I'm actively
+				I'm a sophomore at McMaster University where I'm actively
 				learning all the incredible in's and out's of{" "}
 				<ClientWord
 					initial="computers"
