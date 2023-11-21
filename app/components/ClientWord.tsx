@@ -22,7 +22,7 @@ const ClientWord: React.FC<ClientWordProps> = ({
 			if (newIndex === words.length) {
 				newIndex = 0;
 			}
-			// Select a random word from the words array
+
 			const newWord = words[newIndex];
 			setCurrentWord(newWord);
 		}

@@ -7,7 +7,6 @@ const ClientTechView = () => {
 	const [activeSection, setActiveSection] = useState<string>("front-end");
 
 	const handleSectionClick = (section: string) => {
-		// Perform any action on section click
 		setActiveSection(section);
 	};
 
