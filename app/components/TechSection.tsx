@@ -17,6 +17,8 @@ import {
 	SiPytorch,
 	SiTensorflow,
 	SiYolo,
+	SiR,
+	SiScikitlearn,
 } from "@icons-pack/react-simple-icons";
 
 const TechSection: React.FC<{ activeSection: string }> = ({
@@ -44,6 +46,8 @@ const TechSection: React.FC<{ activeSection: string }> = ({
 		{ icon: <SiTensorflow />, name: "TensorFlow" },
 		{ icon: <SiOpencv />, name: "OpenCV" },
 		{ icon: <SiYolo />, name: "YOLO" },
+		{ icon: <SiR />, name: "R" },
+		{ icon: <SiScikitlearn />, name: "Scikit-Learn" },
 	];
 
 	const renderIcons = (icons: { icon: JSX.Element; name: string }[]) => (
