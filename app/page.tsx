@@ -16,7 +16,7 @@ const Home: React.FC = () => {
 
 	return (
 		<main className="font-body p-8">
-			<h1 className="text-4xl mb-8">👋🏼 Hey, I'm Ahmed.</h1>
+			<h1 className="text-4xl mb-8">👋🏼 Hey, I&apos;m Ahmed.</h1>
 			<p className="mb-6">
 				Welcome to my{" "}
 				<ClientWord
@@ -27,12 +27,12 @@ const Home: React.FC = () => {
 				!
 			</p>
 			<p className="mb-6">
-				I'm a second year Computer Engineering student at McMaster
+				I&apos;m a second year Computer Engineering student at McMaster
 				University 🎓 based in Hamilton, ON.
 			</p>
 			<p className="mb-6">
-				When I'm not clicking on virtual heads 🎮 and improving myself
-				💪🏼, I dive into the{" "}
+				When I&apos;m not clicking on virtual heads 🎮 and improving
+				myself 💪🏼, I dive into the{" "}
 				<span className="">Software Engineering</span> rabbit hole 🕳️.
 			</p>
 

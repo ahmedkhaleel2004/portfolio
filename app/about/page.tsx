@@ -59,7 +59,7 @@ const About: React.FC = () => {
 				className="underline text-3xl cursor-pointer transition-all duration-200 ease-in-out hover:text-nice-blue"
 			/>
 			<p className="mt-8">
-				For as long as I can remember, I've always been the{" "}
+				For as long as I can remember, I&apos;ve always been the{" "}
 				<ClientWord
 					initial="tech support"
 					words={computerwords}
@@ -86,8 +86,8 @@ const About: React.FC = () => {
 				className="underline text-3xl p- cursor-pointer transition-all duration-200 ease-in-out hover:text-nice-blue"
 			/>
 			<p className="mt-8">
-				I'm quite the multi-disciplinary engineer having dabbled in all
-				the fun stuff:
+				I&apos;m quite the multi-disciplinary engineer having dabbled in
+				all the fun stuff:
 			</p>
 			<div className="mb-8">
 				<ClientTechView />
@@ -99,8 +99,8 @@ const About: React.FC = () => {
 				className="underline text-3xl cursor-pointer transition-all duration-200 ease-in-out hover:text-nice-blue"
 			/>
 			<p className="mt-8">
-				I'm a sophomore at McMaster University where I'm actively
-				learning all the incredible in's and out's of{" "}
+				I&apos;m a sophomore at McMaster University where I&apos;m
+				actively learning all the incredible in&apos;s and out&apos;s of{" "}
 				<ClientWord
 					initial="computers"
 					words={learningwords}
@@ -125,7 +125,7 @@ const About: React.FC = () => {
 				className="underline text-3xl cursor-pointer transition-all duration-200 ease-in-out hover:text-nice-blue"
 			/>
 			<p className="mt-8">
-				Still don't really know me? Here are some fun facts:
+				Still don&apos;t really know me? Here are some fun facts:
 			</p>
 			<ul className="mb-8 mt-4 list-disc list-inside pl-8 space-y-1">
 				<li>Know every flag and country in the world 🍁</li>
