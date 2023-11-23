@@ -13,7 +13,7 @@ const Resume: React.FC = () => {
 				download="Ahmed_Khaleel_Resume.pdf"
 				className="underline text-xl cursor-pointer transition-all duration-200 ease-in-out hover:text-nice-blue"
 			>
-				download
+				Download
 			</a>
 		</div>
 	);
