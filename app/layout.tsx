@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { Roboto_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
 	metadataBase: new URL("http://localhost:3000/"), // CHANGE FOR PRODUCTION
@@ -52,6 +53,7 @@ export default function RootLayout({
 				<div className="pt-40 mx-auto max-w-2xl flex">
 					<Navbar />
 					{children}
+					<Analytics />
 				</div>
 				<Footer />
 			</body>
