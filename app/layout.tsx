@@ -50,7 +50,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" className={`${roboto_mono.variable}`}>
 			<body className="min-h-screen bg-body-grey text-white">
-				<div className="pt-40 mx-auto max-w-2xl flex">
+				<div className="pt-32 mx-auto max-w-2xl flex">
 					<Navbar />
 					{children}
 					<Analytics />
