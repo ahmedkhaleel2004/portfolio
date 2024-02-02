@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="p-4">
+    <footer className="mb-[10vh]">
       <div className="flex justify-center space-x-4">
         <Link
           href="https://www.linkedin.com/in/ahmedkhaleel2004"

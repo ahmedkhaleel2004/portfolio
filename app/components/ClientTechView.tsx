@@ -12,7 +12,7 @@ const ClientTechView = () => {
 
   return (
     <div>
-      <div className="mt-6 flex w-full overflow-hidden rounded-lg border-2 border-white">
+      <div className="mt-6 flex w-full items-stretch overflow-hidden rounded-lg border-2 border-white">
         <div
           className={`flex-1 cursor-pointer p-4 duration-200 ease-in-out hover:bg-body-light-grey  ${
             activeSection === "front-end"
@@ -26,7 +26,7 @@ const ClientTechView = () => {
         <div
           className={`flex-1 cursor-pointer p-4 duration-200 ease-in-out hover:bg-body-light-grey ${
             activeSection === "back-end" ? "bg-body-light-grey" : "bg-body-grey"
-          } border-l-2 border-r-2 border-white text-center`}
+          } flex items-center justify-center border-l-2 border-r-2 border-white text-center`}
           onClick={() => handleSectionClick("back-end")}
         >
           Back-End
