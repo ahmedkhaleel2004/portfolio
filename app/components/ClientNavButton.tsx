@@ -12,7 +12,7 @@ const ClientNavButton: React.FC<{ text: string; path: string }> = ({
   return (
     <Link
       href={path}
-      className={`bg-body-grey text-right font-body transition-all duration-200 ease-in-out ${
+      className={`border-r bg-body-grey px-2 text-right font-body transition-all duration-200 ease-in-out sm:border-none sm:px-0 ${
         pathname === path ? "text-nice-blue" : "text-white hover:text-nice-blue"
       }`}
     >

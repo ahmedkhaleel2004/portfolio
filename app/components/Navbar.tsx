@@ -11,17 +11,11 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="flex justify-between pl-2">
-      <div className="mt-32 flex flex-col space-y-4">
-        {buttons.map((button) => (
-          <ClientNavButton
-            key={button.name}
-            text={button.name}
-            path={button.path}
-          />
-        ))}
-      </div>
-    </nav>
+    <div className="flex justify-center sm:mt-32 sm:flex-col sm:justify-normal sm:space-y-4">
+      {buttons.map((button, index) => (
+        <ClientNavButton key={index} text={button.name} path={button.path} />
+      ))}
+    </div>
   );
 };
 
