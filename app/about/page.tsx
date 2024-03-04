@@ -117,6 +117,7 @@ const About: React.FC = () => {
         <li>McMaster Engineering Competition</li>
         <li>DeltaHacks</li>
         <li>McMaster AI Society</li>
+        <li>McMaster Competitive Programming</li>
       </ul>
       <span className="text-3xl">✍🏼</span>{" "}
       <ClientWord
