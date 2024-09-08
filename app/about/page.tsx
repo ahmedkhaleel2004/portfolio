@@ -33,9 +33,14 @@ const About: React.FC = () => {
   const title2words = ["Presently", "Recently", "Nowadays", "Lately"];
   const techwords = ["Technology", "Stacks", "Services", "Tools"];
   const learningwords = [
-    "computers",
+    "software design",
     "data structures",
     "algorithims",
+    "discrete math",
+    "operating systems",
+    "databases",
+    "machine learning",
+    "networking",
     "clocked circuits",
     "electrical circuits",
     "embedded programming",
@@ -99,14 +104,14 @@ const About: React.FC = () => {
         className="cursor-pointer text-3xl underline transition-all duration-200 ease-in-out hover:text-nice-blue"
       />
       <p className="mt-8">
-        I&apos;m a sophomore at McMaster University where I&apos;m actively
+        I&apos;m a Junior at McMaster University where I&apos;m actively
         learning all the incredible in&apos;s and out&apos;s of{" "}
         <ClientWord
-          initial="computers"
+          initial="software design"
           words={learningwords}
           className="cursor-pointer underline transition-all duration-200 ease-in-out hover:text-nice-blue"
         />{" "}
-        ⚡.
+        💻.
       </p>
       <p className="mt-6">
         Whenever I manage to find time in my engineering schedule, I love
@@ -114,10 +119,11 @@ const About: React.FC = () => {
       </p>
       <ul className="mb-8 mt-4 list-inside list-disc space-y-1 pl-8">
         <li>Google Developer Student Clubs</li>
-        <li>McMaster Engineering Competition</li>
+        <li>McMaster/Ontario Engineering Competition</li>
         <li>DeltaHacks</li>
         <li>McMaster AI Society</li>
         <li>McMaster Competitive Programming</li>
+        <li>McMaster Engineering Society</li>
       </ul>
       <span className="text-3xl">✍🏼</span>{" "}
       <ClientWord
@@ -132,7 +138,17 @@ const About: React.FC = () => {
         <li>Know every flag and country in the world 🍁</li>
         <li>Studied biomedical engineering 💉</li>
         <li>Memorized 100 digits of pi ⭕</li>
-        <li>171 WPM and increasing ⌨</li>
+        <li>
+          <span>
+            <a
+              className="cursor-pointer underline transition-all duration-200 ease-in-out hover:text-nice-blue"
+              href="https://monkeytype.com/profile/zite"
+            >
+              185 WPM
+            </a>
+          </span>{" "}
+          and increasing ⌨
+        </li>
         <li>Born in Dubai 🌃</li>
         <li>INTJ Personality 🤔</li>
         <li>Immortal in Valorant 🔫</li>

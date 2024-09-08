@@ -4,13 +4,13 @@ import ClientWord from "./components/ClientWord";
 const Home: React.FC = () => {
   const words = [
     "portfolio",
-    "lobby",
-    "home",
+    "server",
+    "node",
     "arena",
     "dungeon",
-    "server",
+    "lobby",
     "environment",
-    "node",
+    "home",
     "interface",
   ];
 
@@ -27,13 +27,12 @@ const Home: React.FC = () => {
         !
       </p>
       <p className="mb-6">
-        I&apos;m a second year Computer Engineering student at McMaster
+        I&apos;m a third year Software Engineering student at McMaster
         University 🎓 based in Hamilton, ON.
       </p>
       <p className="mb-6">
         When I&apos;m not clicking on virtual heads 🎮 and improving myself 💪🏼,
-        I dive into the <span className="">Software Engineering</span> rabbit
-        hole 🕳️.
+        I dive into the engineering rabbit hole 🕳️.
       </p>
 
       <p>

@@ -1,5 +1,5 @@
 import React from "react";
-import PDFViewer from "../components/PDFViewer";
+import PDFViewer from "@/app/components/PDFViewer";
 
 const Resume: React.FC = () => {
   return (

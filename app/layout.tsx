@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("http://localhost:3000/"), // CHANGE FOR PRODUCTION
   title: "Ahmed Khaleel",
   description:
-    "Ahmed Khaleel's portfolio, featuring projects in software development.",
+    "Ahmed Khaleel's portfolio, featuring projects and experience in software development.",
   keywords: [
     "Python",
     "JavaScript",
@@ -33,6 +33,7 @@ export const metadata: Metadata = {
     "Technology",
     "Tech",
     "Portfolio",
+    "Ahmed Khaleel",
   ],
   authors: [{ name: "Ahmed Khaleel" }],
   openGraph: {
@@ -58,7 +59,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${roboto_mono.variable}`}>
-      <body className="min-h-screen bg-body-grey text-white">
+      <body className="bg-body-grey text-white">
         <div className="mx-auto mt-[10vh] max-w-2xl sm:mt-[20vh] sm:flex">
           <Navbar />
           {children}

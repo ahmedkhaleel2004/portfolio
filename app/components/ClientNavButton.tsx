@@ -13,7 +13,7 @@ const ClientNavButton: React.FC<{
   return (
     <Link
       href={path}
-      className={`${index !== 4 ? "border-r" : ""} bg-body-grey px-2 text-right font-body transition-all duration-200 ease-in-out sm:border-none sm:px-0 ${
+      className={`${index !== 3 ? "border-r" : ""} bg-body-grey px-2 text-right font-body transition-all duration-200 ease-in-out sm:border-none sm:px-0 ${
         pathname === path ? "text-nice-blue" : "text-white hover:text-nice-blue"
       }`}
     >

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import TechSection from "./TechSection";
 
 const ClientTechView = () => {
-  const [activeSection, setActiveSection] = useState<string>("front-end");
+  const [activeSection, setActiveSection] = useState<string>("web");
 
   const handleSectionClick = (section: string) => {
     setActiveSection(section);
@@ -15,29 +15,37 @@ const ClientTechView = () => {
       <div className="mt-6 flex w-full items-stretch overflow-hidden rounded-lg border-2 border-white">
         <div
           className={`flex-1 cursor-pointer p-4 duration-200 ease-in-out hover:bg-body-light-grey  ${
-            activeSection === "front-end"
+            activeSection === "languages"
               ? "bg-body-light-grey"
               : "bg-body-grey"
           } text-center`}
-          onClick={() => handleSectionClick("front-end")}
+          onClick={() => handleSectionClick("languages")}
         >
-          Front-End
+          Languages
         </div>
         <div
           className={`flex-1 cursor-pointer p-4 duration-200 ease-in-out hover:bg-body-light-grey ${
-            activeSection === "back-end" ? "bg-body-light-grey" : "bg-body-grey"
+            activeSection === "web" ? "bg-body-light-grey" : "bg-body-grey"
           } flex items-center justify-center border-l-2 border-r-2 border-white text-center`}
-          onClick={() => handleSectionClick("back-end")}
+          onClick={() => handleSectionClick("web")}
         >
-          Back-End
+          Web
         </div>
         <div
           className={`flex-1 cursor-pointer p-4 duration-200 ease-in-out hover:bg-body-light-grey ${
-            activeSection === "ml-other" ? "bg-body-light-grey" : "bg-body-grey"
-          } text-center`}
-          onClick={() => handleSectionClick("ml-other")}
+            activeSection === "ml" ? "bg-body-light-grey" : "bg-body-grey"
+          } flex items-center justify-center border-l-2 border-r-2 border-white text-center`}
+          onClick={() => handleSectionClick("ml")}
         >
-          ML / Other
+          ML
+        </div>
+        <div
+          className={`flex-1 cursor-pointer p-4 duration-200 ease-in-out hover:bg-body-light-grey ${
+            activeSection === "tools" ? "bg-body-light-grey" : "bg-body-grey"
+          } text-center`}
+          onClick={() => handleSectionClick("tools")}
+        >
+          Tools
         </div>
       </div>
       <TechSection activeSection={activeSection} />
