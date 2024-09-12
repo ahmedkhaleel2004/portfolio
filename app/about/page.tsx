@@ -151,7 +151,17 @@ const About: React.FC = () => {
         </li>
         <li>Born in Dubai 🌃</li>
         <li>INTJ Personality 🤔</li>
-        <li>Immortal in Valorant 🔫</li>
+        <li>
+          <span>
+            <a
+              className="cursor-pointer underline transition-all duration-200 ease-in-out hover:text-nice-blue"
+              href="https://tracker.gg/valorant/profile/riot/Zite%23zite/overview"
+            >
+              Immortal
+            </a>
+          </span>{" "}
+          in Valorant 🔫
+        </li>
       </ul>
     </main>
   );
