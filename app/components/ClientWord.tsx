@@ -28,7 +28,7 @@ const ClientWord: React.FC<ClientWordProps> = ({
     }
   };
   return (
-    <span className={className} onClick={changeWord} user-select="none">
+    <span className={className} onClick={changeWord} style="user-select:none">
       {currentWord}
     </span>
   );
