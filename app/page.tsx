@@ -31,6 +31,16 @@ const Home: React.FC = () => {
         University 🎓 based in Hamilton, ON.
       </p>
       <p className="mb-6">
+        Recently, I shipped{" "}
+        <a
+          href="https://gitdiagram.com"
+          className="underline transition-colors duration-200 ease-in-out hover:text-nice-blue"
+        >
+          GitDiagram
+        </a>{" "}
+        to 100,000+ users and 2,600+ stars ⭐.
+      </p>
+      <p className="mb-6">
         When I&apos;m not clicking on virtual heads 🎮 and improving myself 💪🏼,
         I dive into the engineering rabbit hole 🕳️.
       </p>

@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons/faLinkedinIn";
+import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
 
 const Footer = () => {
@@ -19,6 +20,12 @@ const Footer = () => {
           className="h-6 w-6 transition-all duration-200 ease-in-out hover:text-nice-blue"
         >
           <FontAwesomeIcon icon={faGithub} />
+        </Link>
+        <Link
+          href="https://x.com/ahmedkhaleel04"
+          className="h-6 w-6 transition-all duration-200 ease-in-out hover:text-nice-blue"
+        >
+          <FontAwesomeIcon icon={faXTwitter} />
         </Link>
       </div>
     </footer>
