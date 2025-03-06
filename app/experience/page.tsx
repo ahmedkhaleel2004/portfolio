@@ -2,15 +2,21 @@ import React from "react";
 
 const positions = [
   {
+    title: "Founder",
+    company: "GitDiagram",
+    date: "Jan. 2025 - Present",
+    desc: "Instantly visualize any GitHub repository as an interactive diagram. 100,000+ users, 2,700+ stars.",
+  },
+  {
     title: "MLH Production Engineering Fellow",
     company: "Meta",
-    date: "Jun. 2024 - Present",
+    date: "Jun. 2024 - Sep. 2024",
     desc: "Built and deployed a scalable web application with automated CI/CD workflows, webhook alerts, and system monitoring, while optimizing performance and uptime for a Linux (CentOS) VPS",
   },
   {
     title: "Software Developer",
     company: "McMaster Engineering Society",
-    date: "Jul. 2024 - Present",
+    date: "Jul. 2024 - Dec. 2024",
     desc: "Developing Clubs/Teams portal backend for over 61 clubs and 6500 students using TypeScript, Node.js, and MongoDB",
   },
   {
