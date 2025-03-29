@@ -4,7 +4,7 @@ import Link from "next/link";
 const projects = [
   {
     title: "GitDiagram",
-    desc: "Instantly visualize any GitHub repository as an interactive diagram. 100,000+ users, 2,700+ stars.",
+    desc: "Instantly visualize any GitHub repository as an interactive diagram. 120,000+ users, 3,600+ stars.",
     link: "https://gitdiagram.com",
   },
   {
