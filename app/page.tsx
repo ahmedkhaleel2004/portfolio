@@ -38,7 +38,7 @@ const Home: React.FC = () => {
         >
           GitDiagram
         </a>{" "}
-        to 150,000+ users and 7,100+ stars ⭐.
+        to 150,000+ users and 9,000+ stars ⭐.
       </p>
       <p className="mb-6">
         When I&apos;m not clicking on virtual heads 🎮 and improving myself 💪🏼,
