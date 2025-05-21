@@ -3,10 +3,10 @@ import ClientNavButton from "./ClientNavButton";
 
 const Navbar = () => {
   const buttons = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Projects", path: "/projects" },
-    { name: "Experience", path: "/experience" },
+    { name: "Home", path: "/old" },
+    { name: "About", path: "/old/about" },
+    { name: "Projects", path: "/old/projects" },
+    { name: "Experience", path: "/old/experience" },
     // { name: "Resume", path: "/resume" },
   ];
 

@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import { Roboto_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("http://localhost:3000/"), // CHANGE FOR PRODUCTION
+  metadataBase: new URL("https://ahmedkhaleel.dev/"), // CHANGE FOR PRODUCTION
   title: "Ahmed Khaleel",
   description:
     "Ahmed Khaleel's portfolio, featuring projects and experience in software development.",
@@ -60,12 +58,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${roboto_mono.variable}`}>
       <body className="bg-body-grey text-white">
-        <div className="mx-auto mt-[10vh] max-w-2xl sm:mt-[20vh] sm:flex">
-          <Navbar />
+        <div className="mx-auto mt-10 max-w-3xl sm:mt-20 sm:flex">
           {children}
           <Analytics />
         </div>
-        <Footer />
       </body>
     </html>
   );

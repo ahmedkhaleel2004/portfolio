@@ -1,6 +1,6 @@
 import React from "react";
-import ClientWord from "../components/ClientWord";
-import ClientTechView from "../components/ClientTechView";
+import ClientWord from "../../components/ClientWord";
+import ClientTechView from "../../components/ClientTechView";
 
 const About: React.FC = () => {
   const titlewords = [

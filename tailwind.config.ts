@@ -21,7 +21,7 @@ const config: Config = {
         customNav: "7.25rem", // Add custom spacing
       },
       colors: {
-        "body-grey": "#171717",
+        "body-grey": "#101010",
         "body-light-grey": "#454545",
         "nice-blue": "#61a8ff",
       },
