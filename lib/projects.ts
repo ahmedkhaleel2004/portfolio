@@ -55,6 +55,7 @@ export const projects: Project[] = [
     summary: "Competitive education platform concept",
     link: "https://github.com/ahmedkhaleel2004/nocra",
     code: "https://github.com/ahmedkhaleel2004/nocra",
+    image: "/nocra.png",
   },
   {
     title: "Dexterity-Dash",
@@ -62,6 +63,7 @@ export const projects: Project[] = [
     summary: "Hardware: Physical therapy for MS patients",
     link: "https://far-lupin-29c.notion.site/Project-Four-Breakdown-7a05f88aaadc44fe8638b32064008e97",
     code: "https://github.com/ahmedkhaleel2004",
+    image: "/dexteritydash.png",
   },
   {
     title: "ParkFinder",
@@ -75,8 +77,9 @@ export const projects: Project[] = [
     title: "Py-kemon GO",
     desc: "A Python command line recreation of the popular mobile game, Pokemon GO!",
     summary: "Pokemon GO in the terminal with Python",
-    link: "https://github.com/ahmedkhaleel2004/Py-kemon-Go",
+    link: "https://youtu.be/VNnJPualo28?si=n5qRLqu8WIxGgpG6",
     code: "https://github.com/ahmedkhaleel2004/Py-kemon-Go",
+    image: "/pykemongo.png",
   },
   {
     title: "ShipSafe",

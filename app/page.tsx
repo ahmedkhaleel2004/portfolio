@@ -119,6 +119,7 @@ const Home: React.FC = () => {
                         <span className="block max-w-full cursor-default truncate text-sm text-neutral-400">
                           {project.title === "Portfolio" && (
                             <>
+                              &nbsp;
                               <Link
                                 href="/old"
                                 className="mr-1 text-gray-400 underline"
@@ -127,7 +128,7 @@ const Home: React.FC = () => {
                               </Link>
                             </>
                           )}
-                          — {project.summary || project.desc}
+                          &nbsp;— {project.summary || project.desc}
                         </span>
                       </div>
                     </div>
