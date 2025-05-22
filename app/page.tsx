@@ -83,6 +83,16 @@ const Home: React.FC = () => {
                         imageSrc={project.image}
                       >
                         <span className="block cursor-default truncate text-sm text-neutral-400">
+                          {project.title === "Portfolio" && (
+                            <>
+                              <Link
+                                href="/old"
+                                className="mr-1 text-gray-400 underline"
+                              >
+                                [old]
+                              </Link>
+                            </>
+                          )}
                           — {project.desc}
                         </span>
                       </ProjectTooltip>
@@ -97,11 +107,6 @@ const Home: React.FC = () => {
                 </a>
               </div>
             ))}
-            <div className="mt-1 text-xs">
-              <Link href="/old" className="text-gray-400 underline">
-                view old version
-              </Link>
-            </div>
           </div>
         </section>
       </FadeIn>

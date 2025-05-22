@@ -3,7 +3,7 @@ import { highlights } from "@/lib/highlights";
 
 const Highlights = () => {
   return (
-    <section className="mb-8">
+    <section className="mb-6">
       <h2 className="mb-4 text-xl font-bold">Highlights</h2>
       <div className="space-y-6">
         {highlights.map((highlight, index) => (

@@ -22,6 +22,7 @@ const ProjectTooltip = ({
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const lastMoveTime = useRef<number>(0);
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const tooltipRef = useRef<HTMLDivElement>(null);
 
   // Mount check for client-side rendering
   useEffect(() => {
@@ -35,10 +36,17 @@ const ProjectTooltip = ({
   const updatePosition = (e: React.MouseEvent) => {
     const now = Date.now();
     // Throttle position updates to every 16ms (roughly 60fps)
-    if (now - lastMoveTime.current > 16) {
+    if (now - lastMoveTime.current > 5) {
+      // Calculate tooltip height (default estimate if ref not available)
+      const tooltipHeight = tooltipRef.current
+        ? tooltipRef.current.offsetHeight
+        : imageSrc
+          ? 400
+          : 150; // Estimate based on content
+
       setPosition({
         x: e.clientX,
-        y: e.clientY + 15,
+        y: e.clientY - tooltipHeight - 15, // Position above cursor with a margin
       });
       lastMoveTime.current = now;
     }
@@ -81,6 +89,7 @@ const ProjectTooltip = ({
               left: `${position.x}px`,
               pointerEvents: "none",
             }}
+            ref={tooltipRef}
           >
             <div className="w-72 overflow-hidden rounded-lg bg-neutral-900 p-5 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.5),0_0_5px_rgba(0,0,0,0.2)] sm:w-96">
               <div className="mb-3">
