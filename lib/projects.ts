@@ -9,14 +9,6 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "Portfolio",
-    desc: "Personal portfolio website built with Next.js and Tailwind CSS.",
-    summary: "This website!",
-    link: "/",
-    code: "https://github.com/ahmedkhaleel2004/portfolio",
-    image: "/portfolio.png",
-  },
-  {
     title: "GitDiagram",
     desc: "Instantly visualize any GitHub repository as an interactive diagram. 150,000+ users, 10,000+ stars.",
     summary: "Visualize any GitHub repo with AI, 150k+ users, 12k+ stars",
@@ -41,20 +33,21 @@ export const projects: Project[] = [
     image: "/intellex.jpeg",
   },
   {
+    title: "Portfolio",
+    desc: "Personal portfolio website built with Next.js and Tailwind CSS.",
+    summary: "This website!",
+    link: "/",
+    code: "https://github.com/ahmedkhaleel2004/portfolio",
+    image: "/portfolio.png",
+  },
+
+  {
     title: "C++ Snake",
     desc: "Fully functional game engine for Snake with multiplayer, OOP, memory safety, and more.",
     summary: "Fun low-level game engine with multiplayer and OOP",
     link: "https://github.com/ahmedkhaleel2004/Snake-CPP",
     code: "https://github.com/ahmedkhaleel2004/Snake-CPP",
     image: "/cppsnake.gif",
-  },
-  {
-    title: "ParkFinder",
-    desc: "Scans parking lots with YOLOv8 and finds shortest routes using A* pathfinding.",
-    summary: "Computer vision + A* for parking",
-    link: "https://github.com/ahmedkhaleel2004/MEC-2023",
-    code: "https://github.com/ahmedkhaleel2004/MEC-2023",
-    image: "/parkfinder.png",
   },
   {
     title: "Nocra",
@@ -69,6 +62,14 @@ export const projects: Project[] = [
     summary: "Hardware: Physical therapy for MS patients",
     link: "https://far-lupin-29c.notion.site/Project-Four-Breakdown-7a05f88aaadc44fe8638b32064008e97",
     code: "https://github.com/ahmedkhaleel2004",
+  },
+  {
+    title: "ParkFinder",
+    desc: "Scans parking lots with YOLOv8 and finds shortest routes using A* pathfinding.",
+    summary: "Computer vision + A* for parking",
+    link: "https://github.com/ahmedkhaleel2004/MEC-2023",
+    code: "https://github.com/ahmedkhaleel2004/MEC-2023",
+    image: "/parkfinder.png",
   },
   {
     title: "Py-kemon GO",

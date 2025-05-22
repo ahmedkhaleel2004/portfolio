@@ -74,16 +74,26 @@ const Home: React.FC = () => {
                 description={project.desc}
                 imageSrc={project.image}
               >
-                <div className="flex w-full items-baseline justify-between">
+                <div className="flex w-full flex-col items-baseline justify-between md:flex-row">
                   <div className="min-w-0 flex-1 pr-4">
-                    <div className="flex items-baseline">
-                      <a
-                        href={project.link}
-                        className="mr-2 whitespace-nowrap text-sm font-semibold underline"
-                      >
-                        {project.title}
-                      </a>
-                      <div className="w-0 min-w-0 flex-1 overflow-hidden">
+                    <div className="flex flex-col items-baseline md:flex-row">
+                      <div className="flex w-full items-baseline md:w-auto">
+                        <div className="flex flex-1 items-baseline">
+                          <a
+                            href={project.link}
+                            className="mr-0 whitespace-nowrap text-sm font-semibold underline md:mr-2 md:text-sm"
+                          >
+                            {project.title}
+                          </a>
+                        </div>
+                        <a
+                          href={project.code}
+                          className="ml-auto block text-sm font-medium text-gray-400 underline md:hidden"
+                        >
+                          code
+                        </a>
+                      </div>
+                      <div className="hidden w-0 min-w-0 flex-1 overflow-hidden md:block">
                         <span className="block max-w-full cursor-default truncate text-sm text-neutral-400">
                           {project.title === "Portfolio" && (
                             <>
@@ -98,11 +108,26 @@ const Home: React.FC = () => {
                           — {project.summary || project.desc}
                         </span>
                       </div>
+                      <div className="block min-w-0 flex-1 md:hidden">
+                        <span className="block cursor-default text-base text-neutral-400">
+                          {project.title === "Portfolio" && (
+                            <>
+                              <Link
+                                href="/old"
+                                className="mr-1 text-gray-400 underline"
+                              >
+                                [old]
+                              </Link>
+                            </>
+                          )}
+                          {project.summary || project.desc}
+                        </span>
+                      </div>
                     </div>
                   </div>
                   <a
                     href={project.code}
-                    className="ml-2 whitespace-nowrap text-xs text-gray-400 underline"
+                    className="ml-0 mt-1 hidden whitespace-nowrap text-sm font-medium text-gray-400 underline md:ml-2 md:mt-0 md:block"
                   >
                     code
                   </a>
@@ -124,20 +149,25 @@ const Home: React.FC = () => {
                 company={position.company}
                 description={position.desc}
               >
-                <div className="flex w-full items-baseline justify-between">
+                <div className="flex w-full flex-col items-baseline justify-between md:flex-row">
                   <div className="min-w-0 flex-1 pr-4">
-                    <div className="flex items-baseline">
-                      <span className="mr-2 whitespace-nowrap text-sm font-semibold">
+                    <div className="flex flex-col items-baseline md:flex-row">
+                      <span className="mr-0 whitespace-nowrap text-sm font-semibold md:mr-2 md:text-sm">
                         {position.title}
                       </span>
-                      <div className="w-0 min-w-0 flex-1 overflow-hidden">
+                      <div className="hidden w-0 min-w-0 flex-1 overflow-hidden md:block">
                         <span className="block max-w-full cursor-default truncate text-sm text-neutral-400">
                           — {position.company}
                         </span>
                       </div>
+                      <div className="block min-w-0 flex-1 md:hidden">
+                        <span className="block cursor-default text-base text-neutral-400">
+                          {position.company}
+                        </span>
+                      </div>
                     </div>
                   </div>
-                  <span className="ml-2 whitespace-nowrap text-xs text-gray-400">
+                  <span className="ml-0 mt-1 whitespace-nowrap text-sm text-gray-400 md:ml-2 md:mt-0 md:text-xs">
                     {position.date}
                   </span>
                 </div>
