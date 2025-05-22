@@ -80,7 +80,7 @@ const Home: React.FC = () => {
                     <div className="flex flex-col">
                       <a
                         href={project.link}
-                        className="whitespace-nowrap text-sm font-semibold underline"
+                        className="text-sm font-semibold underline md:whitespace-nowrap"
                       >
                         {project.title}
                       </a>
@@ -111,7 +111,7 @@ const Home: React.FC = () => {
                     <div className="flex items-baseline">
                       <a
                         href={project.link}
-                        className="mr-2 whitespace-nowrap text-sm font-semibold underline"
+                        className="text-sm font-semibold underline md:whitespace-nowrap"
                       >
                         {project.title}
                       </a>
@@ -159,7 +159,7 @@ const Home: React.FC = () => {
                 <div className="flex w-full flex-col items-baseline justify-between md:flex-row">
                   <div className="min-w-0 flex-1 pr-4">
                     <div className="flex flex-col items-baseline md:flex-row">
-                      <span className="mr-0 whitespace-nowrap text-base font-semibold md:mr-2 md:text-sm">
+                      <span className="mr-0 text-base font-semibold md:mr-2 md:whitespace-nowrap md:text-sm">
                         {position.title}
                       </span>
                       <div className="hidden w-0 min-w-0 flex-1 overflow-hidden md:block">
