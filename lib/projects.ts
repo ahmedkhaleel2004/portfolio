@@ -22,7 +22,7 @@ export const projects: Project[] = [
     summary: "Visualize any GitHub repo with AI, 150k+ users, 12k+ stars",
     link: "https://gitdiagram.com",
     code: "https://github.com/ahmedkhaleel2004/gitdiagram",
-    image: "/gitdiagram.jpeg",
+    image: "/gitdiagram.png",
   },
   {
     title: "DeepEnd",

@@ -77,28 +77,26 @@ const Home: React.FC = () => {
                 <div className="flex w-full items-baseline justify-between">
                   <div className="min-w-0 flex-1 pr-4">
                     <div className="flex items-baseline">
-                      <div className="flex items-baseline">
-                        <a
-                          href={project.link}
-                          className="mr-2 whitespace-nowrap text-sm font-semibold underline"
-                        >
-                          {project.title}
-                        </a>
-                        <div className="min-w-0 flex-1">
-                          <span className="block cursor-default truncate text-sm text-neutral-400">
-                            {project.title === "Portfolio" && (
-                              <>
-                                <Link
-                                  href="/old"
-                                  className="mr-1 text-gray-400 underline"
-                                >
-                                  [old]
-                                </Link>
-                              </>
-                            )}
-                            — {project.summary || project.desc}
-                          </span>
-                        </div>
+                      <a
+                        href={project.link}
+                        className="mr-2 whitespace-nowrap text-sm font-semibold underline"
+                      >
+                        {project.title}
+                      </a>
+                      <div className="w-0 min-w-0 flex-1 overflow-hidden">
+                        <span className="block max-w-full cursor-default truncate text-sm text-neutral-400">
+                          {project.title === "Portfolio" && (
+                            <>
+                              <Link
+                                href="/old"
+                                className="mr-1 text-gray-400 underline"
+                              >
+                                [old]
+                              </Link>
+                            </>
+                          )}
+                          — {project.summary || project.desc}
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -117,10 +115,7 @@ const Home: React.FC = () => {
 
       <FadeIn delay={300}>
         <section className="mb-8">
-          <h2 className="mb-2 text-xl font-bold">
-            Experience
-            <span className="ml-2 text-xs text-gray-400">- hover!</span>
-          </h2>
+          <h2 className="mb-2 text-xl font-bold">Experience</h2>
           <div className="space-y-2">
             {positions.map((position, index) => (
               <ExperienceTooltip
@@ -132,15 +127,13 @@ const Home: React.FC = () => {
                 <div className="flex w-full items-baseline justify-between">
                   <div className="min-w-0 flex-1 pr-4">
                     <div className="flex items-baseline">
-                      <div className="flex items-baseline">
-                        <span className="mr-2 whitespace-nowrap text-sm font-semibold">
-                          {position.title}
+                      <span className="mr-2 whitespace-nowrap text-sm font-semibold">
+                        {position.title}
+                      </span>
+                      <div className="w-0 min-w-0 flex-1 overflow-hidden">
+                        <span className="block max-w-full cursor-default truncate text-sm text-neutral-400">
+                          — {position.company}
                         </span>
-                        <div className="min-w-0 flex-1">
-                          <span className="block cursor-default truncate text-sm text-neutral-400">
-                            — {position.company}
-                          </span>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -153,16 +146,15 @@ const Home: React.FC = () => {
           </div>
         </section>
       </FadeIn>
-
       <FadeIn delay={400}>
         <section className="mb-8">
           <h2 className="mb-2 text-xl font-bold">Awards</h2>
-          <ul className="list-disc space-y-1 pl-5 text-sm">
-            <li>DeltaHacks X Prize Winner</li>
-            <li>Engineering Award of Excellence</li>
-            <li>First Place @ Google Solution Challenge McMaster</li>
-            <li>First Place @ McMaster Engineering Competition 2022</li>
-          </ul>
+          <div className="space-y-1 text-sm">
+            <p>DeltaHacks X Prize Winner</p>
+            <p>Engineering Award of Excellence</p>
+            <p>First Place @ Google Solution Challenge McMaster</p>
+            <p>First Place @ McMaster Engineering Competition 2022</p>
+          </div>
         </section>
       </FadeIn>
       {/* 
