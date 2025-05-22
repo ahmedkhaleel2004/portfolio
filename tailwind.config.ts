@@ -13,15 +13,20 @@ const config: Config = {
           "0%": { opacity: "0", transform: "translateY(-1rem)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        fadeIn: {
+          "0%": { opacity: "0", transform: "translateY(-10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
       },
       animation: {
         slideDown: "slideDown 0.5s ease-out forwards",
+        "fade-in": "fadeIn 0.5s ease-out forwards",
       },
       spacing: {
         customNav: "7.25rem", // Add custom spacing
       },
       colors: {
-        "body-grey": "#101010",
+        "body-grey": "rgb(18, 18, 18)",
         "body-light-grey": "#454545",
         "nice-blue": "#61a8ff",
       },

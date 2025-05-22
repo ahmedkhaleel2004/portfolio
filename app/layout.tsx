@@ -58,7 +58,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${roboto_mono.variable}`}>
       <body className="bg-body-grey text-white">
-        <div className="mx-auto mt-10 max-w-3xl sm:mt-20 sm:flex">
+        <div className="mx-auto mt-5 max-w-3xl sm:mt-10 sm:flex">
           {children}
           <Analytics />
         </div>

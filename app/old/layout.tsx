@@ -11,7 +11,7 @@ export default function OldLayout({ children }: { children: React.ReactNode }) {
         </a>
         !
       </div>
-      <div className="pt-10 sm:flex">
+      <div className="mx-auto mt-[10vh] max-w-2xl pt-10 sm:flex">
         <Navbar />
         <div className="flex flex-col">
           {children}

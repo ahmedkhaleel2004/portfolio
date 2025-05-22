@@ -7,6 +7,12 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "Portfolio",
+    desc: "Personal portfolio website built with Next.js and Tailwind CSS.",
+    link: "/",
+    code: "https://github.com/ahmedkhaleel2004/portfolio",
+  },
+  {
     title: "GitDiagram",
     desc: "Instantly visualize any GitHub repository as an interactive diagram. 150,000+ users, 10,000+ stars.",
     link: "https://gitdiagram.com",
