@@ -4,6 +4,7 @@ import { projects } from "@/lib/projects";
 import { positions } from "@/lib/experience";
 import Highlights from "./components/Highlights";
 import FadeIn from "./components/FadeIn";
+import ProjectTooltip from "./components/ProjectTooltip";
 
 const Home: React.FC = () => {
   return (
@@ -68,21 +69,29 @@ const Home: React.FC = () => {
                 className="flex w-full items-baseline justify-between"
               >
                 <div className="min-w-0 flex-1 pr-4">
-                  <div className="flex items-baseline gap-2">
+                  <div className="flex items-baseline">
                     <a
                       href={project.link}
-                      className="whitespace-nowrap text-sm font-semibold underline"
+                      className="mr-2 whitespace-nowrap text-sm font-semibold underline"
                     >
                       {project.title}
                     </a>
-                    <span className="truncate text-sm text-neutral-400">
-                      — {project.desc}
-                    </span>
+                    <div className="min-w-0 flex-1">
+                      <ProjectTooltip
+                        title={project.title}
+                        description={project.desc}
+                        imageSrc={project.image}
+                      >
+                        <span className="block cursor-default truncate text-sm text-neutral-400">
+                          — {project.desc}
+                        </span>
+                      </ProjectTooltip>
+                    </div>
                   </div>
                 </div>
                 <a
                   href={project.code}
-                  className="whitespace-nowrap text-xs text-gray-400 underline"
+                  className="ml-2 whitespace-nowrap text-xs text-gray-400 underline"
                 >
                   code
                 </a>
