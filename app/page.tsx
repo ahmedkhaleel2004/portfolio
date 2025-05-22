@@ -66,7 +66,7 @@ const Home: React.FC = () => {
             Projects
             <span className="ml-2 text-xs text-gray-400">- hover!</span>
           </h2>
-          <div className="space-y-2">
+          <div className="space-y-4 md:space-y-2">
             {projects.map((project, index) => (
               <ProjectTooltip
                 key={index}
@@ -75,25 +75,47 @@ const Home: React.FC = () => {
                 imageSrc={project.image}
               >
                 <div className="flex w-full flex-col items-baseline justify-between md:flex-row">
-                  <div className="min-w-0 flex-1 pr-4">
-                    <div className="flex flex-col items-baseline md:flex-row">
-                      <div className="flex w-full items-baseline md:w-auto">
-                        <div className="flex flex-1 items-baseline">
-                          <a
-                            href={project.link}
-                            className="mr-0 whitespace-nowrap text-sm font-semibold underline md:mr-2 md:text-sm"
-                          >
-                            {project.title}
-                          </a>
-                        </div>
-                        <a
-                          href={project.code}
-                          className="ml-auto block text-sm font-medium text-gray-400 underline md:hidden"
-                        >
-                          code
-                        </a>
-                      </div>
-                      <div className="hidden w-0 min-w-0 flex-1 overflow-hidden md:block">
+                  {/* Mobile layout */}
+                  <div className="flex w-full justify-between md:hidden">
+                    <div className="flex flex-col">
+                      <a
+                        href={project.link}
+                        className="whitespace-nowrap text-sm font-semibold underline"
+                      >
+                        {project.title}
+                      </a>
+                      <span className="block cursor-default text-base text-neutral-400">
+                        {project.title === "Portfolio" && (
+                          <>
+                            <Link
+                              href="/old"
+                              className="mr-1 text-gray-400 underline"
+                            >
+                              [old]
+                            </Link>
+                          </>
+                        )}
+                        {project.summary || project.desc}
+                      </span>
+                    </div>
+                    <a
+                      href={project.code}
+                      className="ml-2 flex-shrink-0 self-start whitespace-nowrap text-sm font-medium text-gray-400 underline"
+                    >
+                      code
+                    </a>
+                  </div>
+
+                  {/* Desktop layout */}
+                  <div className="hidden min-w-0 flex-1 pr-4 md:block">
+                    <div className="flex items-baseline">
+                      <a
+                        href={project.link}
+                        className="mr-2 whitespace-nowrap text-sm font-semibold underline"
+                      >
+                        {project.title}
+                      </a>
+                      <div className="w-0 min-w-0 flex-1 overflow-hidden">
                         <span className="block max-w-full cursor-default truncate text-sm text-neutral-400">
                           {project.title === "Portfolio" && (
                             <>
@@ -108,26 +130,11 @@ const Home: React.FC = () => {
                           — {project.summary || project.desc}
                         </span>
                       </div>
-                      <div className="block min-w-0 flex-1 md:hidden">
-                        <span className="block cursor-default text-base text-neutral-400">
-                          {project.title === "Portfolio" && (
-                            <>
-                              <Link
-                                href="/old"
-                                className="mr-1 text-gray-400 underline"
-                              >
-                                [old]
-                              </Link>
-                            </>
-                          )}
-                          {project.summary || project.desc}
-                        </span>
-                      </div>
                     </div>
                   </div>
                   <a
                     href={project.code}
-                    className="ml-0 mt-1 hidden whitespace-nowrap text-sm font-medium text-gray-400 underline md:ml-2 md:mt-0 md:block"
+                    className="hidden whitespace-nowrap text-sm font-medium text-gray-400 underline md:ml-2 md:block"
                   >
                     code
                   </a>
@@ -141,7 +148,7 @@ const Home: React.FC = () => {
       <FadeIn delay={300}>
         <section className="mb-8">
           <h2 className="mb-2 text-xl font-bold">Experience</h2>
-          <div className="space-y-2">
+          <div className="space-y-4 md:space-y-2">
             {positions.map((position, index) => (
               <ExperienceTooltip
                 key={index}
@@ -152,7 +159,7 @@ const Home: React.FC = () => {
                 <div className="flex w-full flex-col items-baseline justify-between md:flex-row">
                   <div className="min-w-0 flex-1 pr-4">
                     <div className="flex flex-col items-baseline md:flex-row">
-                      <span className="mr-0 whitespace-nowrap text-sm font-semibold md:mr-2 md:text-sm">
+                      <span className="mr-0 whitespace-nowrap text-base font-semibold md:mr-2 md:text-sm">
                         {position.title}
                       </span>
                       <div className="hidden w-0 min-w-0 flex-1 overflow-hidden md:block">
