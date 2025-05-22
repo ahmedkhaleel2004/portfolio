@@ -5,6 +5,7 @@ import { positions } from "@/lib/experience";
 import Highlights from "./components/Highlights";
 import FadeIn from "./components/FadeIn";
 import ProjectTooltip from "./components/ProjectTooltip";
+import ExperienceTooltip from "./components/ExperienceTooltip";
 
 const Home: React.FC = () => {
   return (
@@ -61,51 +62,54 @@ const Home: React.FC = () => {
 
       <FadeIn delay={200}>
         <section className="mb-8">
-          <h2 className="mb-2 text-xl font-bold">Projects</h2>
+          <h2 className="mb-2 text-xl font-bold">
+            Projects
+            <span className="ml-2 text-xs text-gray-400">- hover!</span>
+          </h2>
           <div className="space-y-2">
             {projects.map((project, index) => (
-              <div
+              <ProjectTooltip
                 key={index}
-                className="flex w-full items-baseline justify-between"
+                title={project.title}
+                description={project.desc}
+                imageSrc={project.image}
               >
-                <div className="min-w-0 flex-1 pr-4">
-                  <div className="flex items-baseline">
-                    <a
-                      href={project.link}
-                      className="mr-2 whitespace-nowrap text-sm font-semibold underline"
-                    >
-                      {project.title}
-                    </a>
-                    <div className="min-w-0 flex-1">
-                      <ProjectTooltip
-                        title={project.title}
-                        description={project.desc}
-                        imageSrc={project.image}
-                      >
-                        <span className="block cursor-default truncate text-sm text-neutral-400">
-                          {project.title === "Portfolio" && (
-                            <>
-                              <Link
-                                href="/old"
-                                className="mr-1 text-gray-400 underline"
-                              >
-                                [old]
-                              </Link>
-                            </>
-                          )}
-                          — {project.desc}
-                        </span>
-                      </ProjectTooltip>
+                <div className="flex w-full items-baseline justify-between">
+                  <div className="min-w-0 flex-1 pr-4">
+                    <div className="flex items-baseline">
+                      <div className="flex items-baseline">
+                        <a
+                          href={project.link}
+                          className="mr-2 whitespace-nowrap text-sm font-semibold underline"
+                        >
+                          {project.title}
+                        </a>
+                        <div className="min-w-0 flex-1">
+                          <span className="block cursor-default truncate text-sm text-neutral-400">
+                            {project.title === "Portfolio" && (
+                              <>
+                                <Link
+                                  href="/old"
+                                  className="mr-1 text-gray-400 underline"
+                                >
+                                  [old]
+                                </Link>
+                              </>
+                            )}
+                            — {project.summary || project.desc}
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
+                  <a
+                    href={project.code}
+                    className="ml-2 whitespace-nowrap text-xs text-gray-400 underline"
+                  >
+                    code
+                  </a>
                 </div>
-                <a
-                  href={project.code}
-                  className="ml-2 whitespace-nowrap text-xs text-gray-400 underline"
-                >
-                  code
-                </a>
-              </div>
+              </ProjectTooltip>
             ))}
           </div>
         </section>
@@ -113,19 +117,38 @@ const Home: React.FC = () => {
 
       <FadeIn delay={300}>
         <section className="mb-8">
-          <h2 className="mb-2 text-xl font-bold">Experience</h2>
-          <div className="space-y-3">
+          <h2 className="mb-2 text-xl font-bold">
+            Experience
+            <span className="ml-2 text-xs text-gray-400">- hover!</span>
+          </h2>
+          <div className="space-y-2">
             {positions.map((position, index) => (
-              <div key={index} className="mb-2">
-                <div className="flex items-baseline justify-between">
-                  <span className="text-sm font-semibold">
-                    {position.title}
+              <ExperienceTooltip
+                key={index}
+                title={position.title}
+                company={position.company}
+                description={position.desc}
+              >
+                <div className="flex w-full items-baseline justify-between">
+                  <div className="min-w-0 flex-1 pr-4">
+                    <div className="flex items-baseline">
+                      <div className="flex items-baseline">
+                        <span className="mr-2 whitespace-nowrap text-sm font-semibold">
+                          {position.title}
+                        </span>
+                        <div className="min-w-0 flex-1">
+                          <span className="block cursor-default truncate text-sm text-neutral-400">
+                            — {position.company}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <span className="ml-2 whitespace-nowrap text-xs text-gray-400">
+                    {position.date}
                   </span>
-                  <span className="text-xs text-gray-400">{position.date}</span>
                 </div>
-                <p className="text-xs text-gray-400">{position.company}</p>
-                <p className="mt-0.5 text-sm">{position.desc}</p>
-              </div>
+              </ExperienceTooltip>
             ))}
           </div>
         </section>
@@ -135,10 +158,10 @@ const Home: React.FC = () => {
         <section className="mb-8">
           <h2 className="mb-2 text-xl font-bold">Awards</h2>
           <ul className="list-disc space-y-1 pl-5 text-sm">
-            <li>GDSC McMaster Solution Challenge Winner</li>
-            <li>DeltaHacks X Winner</li>
-            <li>McMaster Engineering Competition 2022 Winner</li>
-            <li>USA Computing Olympiad, Gold Division</li>
+            <li>DeltaHacks X Prize Winner</li>
+            <li>Engineering Award of Excellence</li>
+            <li>First Place @ Google Solution Challenge McMaster</li>
+            <li>First Place @ McMaster Engineering Competition 2022</li>
           </ul>
         </section>
       </FadeIn>

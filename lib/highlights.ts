@@ -10,7 +10,7 @@ export const highlights: Highlight[] = [
     title: "GitDiagram",
     description:
       "150k+ users, 12k+ stars. Visualize any GitHub repository as an interactive diagram.",
-    image: "/gitdiagram.jpeg",
+    image: "/gitdiagram.png",
     link: "https://gitdiagram.com",
   },
   {
