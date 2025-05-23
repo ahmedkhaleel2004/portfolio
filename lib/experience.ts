@@ -25,7 +25,7 @@ export const positions: Position[] = [
     desc: "Developing Clubs/Teams portal backend for over 61 clubs and 6500 students using TypeScript, Node.js, and MongoDB",
   },
   {
-    title: "Software Engineering Research Assistant",
+    title: "Machine Learning Research Assistant",
     company: "Healthcare Systems R&A Inc.",
     date: "Jun. 2024 - Sep. 2024",
     desc: "Enhanced prediction models and optimized real-time inference by fine-tuning feature extraction, linking sediment samples with KNN, and building an asynchronous frame processing pipeline",
