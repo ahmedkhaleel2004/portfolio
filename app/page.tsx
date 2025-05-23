@@ -48,7 +48,7 @@ const Home: React.FC = () => {
             Email:{" "}
             <a
               href="mailto:ahmedkhaleel2004@gmail.com"
-              className="text-gray-400 underline"
+              className="text-gray-400 hover:underline"
             >
               ahmedkhaleel2004@gmail.com
             </a>
