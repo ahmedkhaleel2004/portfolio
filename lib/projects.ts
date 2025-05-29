@@ -10,8 +10,8 @@ export interface Project {
 export const projects: Project[] = [
   {
     title: "GitDiagram",
-    desc: "Instantly visualize any GitHub repository as an interactive diagram. 150,000+ users, 10,000+ stars.",
-    summary: "Visualize any GitHub repo with AI, 150k+ users, 12k+ stars",
+    desc: "Instantly visualize any GitHub repository as an interactive diagram. 200,000+ users, 13,000+ stars.",
+    summary: "Visualize any GitHub repo with AI, 200k+ users, 13k+ stars",
     link: "https://gitdiagram.com",
     code: "https://github.com/ahmedkhaleel2004/gitdiagram",
     image: "/gitdiagram.png",
