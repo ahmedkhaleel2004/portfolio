@@ -16,7 +16,6 @@ import {
   SiOpencv,
   SiPytorch,
   SiTensorflow,
-  SiYolo,
   SiR,
   SiScikitlearn,
   SiPostgresql,
@@ -40,7 +39,6 @@ import {
   SiGrafana,
   SiAwslambda,
   SiAwsorganizations,
-  SiAmazonaws,
   SiDigitalocean,
 } from "@icons-pack/react-simple-icons";
 
@@ -95,7 +93,7 @@ const TechSection: React.FC<{ activeSection: string }> = ({
     { icon: <SiScikitlearn className={iconClass} />, name: "Scikit-Learn" },
     { icon: <SiOpencv className={iconClass} />, name: "OpenCV" },
     { icon: <SiNumpy className={iconClass} />, name: "NumPy" },
-    { icon: <SiYolo className={iconClass} />, name: "YOLO" },
+    { icon: <TbAssembly className={iconClass} />, name: "YOLO" },
     { icon: <SiR className={iconClass} />, name: "R" },
   ];
 
@@ -107,7 +105,7 @@ const TechSection: React.FC<{ activeSection: string }> = ({
     { icon: <SiSelenium className={iconClass} />, name: "Selenium" },
     { icon: <SiPrometheus className={iconClass} />, name: "Prometheus" },
     { icon: <SiDigitalocean className={iconClass} />, name: "DigitalOcean" },
-    { icon: <SiAmazonaws className={iconClass} />, name: "AWS" },
+    { icon: <SiAmazon className={iconClass} />, name: "AWS" },
   ];
 
   // const backEndIcons: { icon: JSX.Element; name: string }[] = [

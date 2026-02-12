@@ -9,7 +9,7 @@ export const highlights: Highlight[] = [
   {
     title: "GitDiagram",
     description:
-      "200k+ users, 13k+ stars. Grants from OpenAI and Anthropic. Repository to diagram.",
+      "300k+ users, 15k+ stars. Grants from OpenAI and Anthropic. Repository to diagram.",
     image: "/gitdiagram.png",
     link: "https://gitdiagram.com",
   },
