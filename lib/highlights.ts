@@ -14,6 +14,12 @@ export const highlights: Highlight[] = [
     link: "https://gitdiagram.com",
   },
   {
+    title: "ElevenLabs Internship",
+    description: "Building the world's best AI audio platform.",
+    image: "/elevenlabs.png",
+    link: "https://elevenlabs.io",
+  },
+  {
     title: "Meta x MLH PE Fellowship",
     description:
       "One of 50 students selected from 50,000+ applicants to join the Meta Production Engineering Fellowship.",

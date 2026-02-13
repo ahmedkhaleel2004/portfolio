@@ -13,6 +13,12 @@ export const positions: Position[] = [
     desc: "Instantly visualize any GitHub repository as an interactive diagram. 200,000+ users, 13,000+ stars.",
   },
   {
+    title: "Software Engineer Intern",
+    company: "ElevenLabs",
+    date: "May 2025 - Jul. 2025",
+    desc: "Joined as their first ever engineering intern.",
+  },
+  {
     title: "MLH Production Engineering Fellow",
     company: "Meta",
     date: "Jun. 2024 - Sep. 2024",
