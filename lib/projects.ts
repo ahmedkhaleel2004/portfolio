@@ -1,3 +1,5 @@
+import { GITDIAGRAM_DESCRIPTION, GITDIAGRAM_SUMMARY } from "@/lib/gitdiagram";
+
 export interface Project {
   title: string;
   desc: string;
@@ -10,8 +12,8 @@ export interface Project {
 export const projects: Project[] = [
   {
     title: "GitDiagram",
-    desc: "Instantly visualize any GitHub repository as an interactive diagram. 200,000+ users, 13,000+ stars.",
-    summary: "Visualize any GitHub repo with AI, 200k+ users, 13k+ stars",
+    desc: GITDIAGRAM_DESCRIPTION,
+    summary: GITDIAGRAM_SUMMARY,
     link: "https://gitdiagram.com",
     code: "https://github.com/ahmedkhaleel2004/gitdiagram",
     image: "/gitdiagram.png",

@@ -18,17 +18,14 @@ const ProjectTooltip = ({
   imageSrc,
 }: ProjectTooltipProps) => {
   const [isVisible, setIsVisible] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const lastMoveTime = useRef<number>(0);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const tooltipRef = useRef<HTMLDivElement>(null);
+  const portalTarget = typeof document === "undefined" ? null : document.body;
 
-  // Mount check for client-side rendering
   useEffect(() => {
-    setMounted(true);
     return () => {
-      setMounted(false);
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
   }, []);
@@ -79,7 +76,7 @@ const ProjectTooltip = ({
         {children}
       </div>
 
-      {mounted &&
+      {portalTarget &&
         isVisible &&
         createPortal(
           <div
@@ -112,7 +109,7 @@ const ProjectTooltip = ({
               <div className="pointer-events-none absolute inset-0 rounded-lg ring-1 ring-inset ring-white/10"></div>
             </div>
           </div>,
-          document.body,
+          portalTarget,
         )}
     </>
   );

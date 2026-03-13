@@ -1,11 +1,12 @@
 import React from "react";
+import { GITDIAGRAM_DESCRIPTION } from "@/lib/gitdiagram";
 
 const positions = [
   {
     title: "Founder",
     company: "GitDiagram",
     date: "Jan. 2025 - Present",
-    desc: "Instantly visualize any GitHub repository as an interactive diagram. 150,000+ users, 10,000+ stars.",
+    desc: GITDIAGRAM_DESCRIPTION,
   },
   {
     title: "MLH Production Engineering Fellow",

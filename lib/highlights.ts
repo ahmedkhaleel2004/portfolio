@@ -1,3 +1,5 @@
+import { GITDIAGRAM_HIGHLIGHT } from "@/lib/gitdiagram";
+
 export interface Highlight {
   title: string;
   description: string;
@@ -8,17 +10,16 @@ export interface Highlight {
 export const highlights: Highlight[] = [
   {
     title: "GitDiagram",
-    description:
-      "300k+ users, 15k+ stars. Grants from OpenAI and Anthropic. Repository to diagram.",
+    description: GITDIAGRAM_HIGHLIGHT,
     image: "/gitdiagram.png",
     link: "https://gitdiagram.com",
   },
-  {
-    title: "ElevenLabs Internship",
-    description: "Building the world's best AI audio platform.",
-    image: "/elevenlabs.png",
-    link: "https://elevenlabs.io",
-  },
+  // {
+  //   title: "ElevenLabs Internship",
+  //   description: "Building the world's best AI audio platform.",
+  //   image: "/elevenlabs.png",
+  //   link: "https://elevenlabs.io",
+  // },
   {
     title: "Meta x MLH PE Fellowship",
     description:

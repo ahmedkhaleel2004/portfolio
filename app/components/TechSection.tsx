@@ -1,13 +1,10 @@
-import React from "react";
+import React, { type ReactElement } from "react";
 import {
   SiReact,
   SiJavascript,
   SiTypescript,
   SiNextdotjs,
-  SiVite,
-  SiVercel,
   SiTailwindcss,
-  SiFigma,
   SiCplusplus,
   SiC,
   SiPython,
@@ -19,49 +16,33 @@ import {
   SiR,
   SiScikitlearn,
   SiPostgresql,
-  SiAssemblyscript,
-  SiWebassembly,
   SiSocketdotio,
   SiNginx,
   SiPrisma,
   SiHtml5,
-  SiCss3,
+  SiCss,
   SiMongodb,
   SiFlask,
   SiPandas,
   SiNumpy,
-  SiAmazon,
   SiDocker,
   SiFirebase,
   SiSelenium,
   SiJest,
   SiPrometheus,
   SiGrafana,
-  SiAwslambda,
-  SiAwsorganizations,
   SiDigitalocean,
 } from "@icons-pack/react-simple-icons";
 
-import { FaJava } from "react-icons/fa";
+import { FaAws, FaJava } from "react-icons/fa";
 import { TbAssembly } from "react-icons/tb";
 
 const TechSection: React.FC<{ activeSection: string }> = ({
   activeSection,
 }) => {
-  // const frontEndIcons: { icon: JSX.Element; name: string }[] = [
-  //   { icon: <SiTypescript />, name: "TypeScript" },
-  //   { icon: <SiJavascript />, name: "JavaScript" },
-  //   { icon: <SiReact />, name: "React" },
-  //   { icon: <SiNextdotjs />, name: "Next.js" },
-  //   { icon: <SiVite />, name: "Vite" },
-  //   { icon: <SiVercel />, name: "Vercel" },
-  //   { icon: <SiTailwindcss />, name: "Tailwind CSS" },
-  //   { icon: <SiFigma />, name: "Figma" },
-  // ];
-
   const iconClass = "w-6 h-6"; // Tailwind CSS classes for consistent icon size
 
-  const languagesIcons: { icon: JSX.Element; name: string }[] = [
+  const languagesIcons: { icon: ReactElement; name: string }[] = [
     { icon: <SiPython className={iconClass} />, name: "Python" },
     { icon: <SiTypescript className={iconClass} />, name: "TypeScript" },
     { icon: <SiCplusplus className={iconClass} />, name: "C++" },
@@ -71,7 +52,7 @@ const TechSection: React.FC<{ activeSection: string }> = ({
     { icon: <SiC className={iconClass} />, name: "C" },
   ];
 
-  const webIcons: { icon: JSX.Element; name: string }[] = [
+  const webIcons: { icon: ReactElement; name: string }[] = [
     { icon: <SiReact className={iconClass} />, name: "React" },
     { icon: <SiNodedotjs className={iconClass} />, name: "Node.js" },
     { icon: <SiMongodb className={iconClass} />, name: "MongoDB" },
@@ -83,10 +64,10 @@ const TechSection: React.FC<{ activeSection: string }> = ({
     { icon: <SiPrisma className={iconClass} />, name: "Prisma" },
     { icon: <SiTailwindcss className={iconClass} />, name: "Tailwind CSS" },
     { icon: <SiHtml5 className={iconClass} />, name: "HTML" },
-    { icon: <SiCss3 className={iconClass} />, name: "CSS" },
+    { icon: <SiCss className={iconClass} />, name: "CSS" },
   ];
 
-  const mlIcons: { icon: JSX.Element; name: string }[] = [
+  const mlIcons: { icon: ReactElement; name: string }[] = [
     { icon: <SiTensorflow className={iconClass} />, name: "TensorFlow" },
     { icon: <SiPytorch className={iconClass} />, name: "PyTorch" },
     { icon: <SiPandas className={iconClass} />, name: "Pandas" },
@@ -97,7 +78,7 @@ const TechSection: React.FC<{ activeSection: string }> = ({
     { icon: <SiR className={iconClass} />, name: "R" },
   ];
 
-  const toolsIcons: { icon: JSX.Element; name: string }[] = [
+  const toolsIcons: { icon: ReactElement; name: string }[] = [
     { icon: <SiDocker className={iconClass} />, name: "Docker" },
     { icon: <SiFirebase className={iconClass} />, name: "Firebase" },
     { icon: <SiJest className={iconClass} />, name: "Jest" },
@@ -105,26 +86,10 @@ const TechSection: React.FC<{ activeSection: string }> = ({
     { icon: <SiSelenium className={iconClass} />, name: "Selenium" },
     { icon: <SiPrometheus className={iconClass} />, name: "Prometheus" },
     { icon: <SiDigitalocean className={iconClass} />, name: "DigitalOcean" },
-    { icon: <SiAmazon className={iconClass} />, name: "AWS" },
+    { icon: <FaAws className={iconClass} />, name: "AWS" },
   ];
 
-  // const backEndIcons: { icon: JSX.Element; name: string }[] = [
-  //   { icon: <SiCplusplus />, name: "C++" },
-  //   { icon: <SiC />, name: "C" },
-  //   { icon: <SiPython />, name: "Python" },
-  //   { icon: <SiDjango />, name: "Django" },
-  //   { icon: <SiNodedotjs />, name: "Node.js" },
-  // ];
-  // const mlOtherIcons: { icon: JSX.Element; name: string }[] = [
-  //   { icon: <SiPytorch />, name: "PyTorch" },
-  //   { icon: <SiTensorflow />, name: "TensorFlow" },
-  //   { icon: <SiOpencv />, name: "OpenCV" },
-  //   { icon: <SiYolo />, name: "YOLO" },
-  //   { icon: <SiR />, name: "R" },
-  //   { icon: <SiScikitlearn />, name: "Scikit-Learn" },
-  // ];
-
-  const renderIcons = (icons: { icon: JSX.Element; name: string }[]) => (
+  const renderIcons = (icons: { icon: ReactElement; name: string }[]) => (
     <ul className="mt-6 grid grid-cols-2 gap-6">
       {icons.map(({ icon, name }, index) => (
         <li

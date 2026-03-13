@@ -1,3 +1,5 @@
+import { GITDIAGRAM_DESCRIPTION } from "@/lib/gitdiagram";
+
 export interface Position {
   title: string;
   company: string;
@@ -10,7 +12,7 @@ export const positions: Position[] = [
     title: "Founder",
     company: "GitDiagram",
     date: "Jan. 2025 - Present",
-    desc: "Instantly visualize any GitHub repository as an interactive diagram. 200,000+ users, 13,000+ stars.",
+    desc: GITDIAGRAM_DESCRIPTION,
   },
   {
     title: "Software Engineer Intern",

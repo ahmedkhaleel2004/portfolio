@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Roboto_Mono } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ahmedkhaleel.dev/"), // CHANGE FOR PRODUCTION
@@ -58,10 +57,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${roboto_mono.variable}`}>
       <body className="bg-body-grey text-white">
-        <div className="mx-auto mt-5 max-w-3xl sm:mt-10 sm:flex">
-          {children}
-          <Analytics />
-        </div>
+        <div className="mx-auto mt-5 max-w-3xl sm:mt-10 sm:flex">{children}</div>
       </body>
     </html>
   );
