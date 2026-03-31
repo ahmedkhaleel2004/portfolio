@@ -14,16 +14,22 @@ const config: Config = {
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         fadeIn: {
-          "0%": { opacity: "0", transform: "translateY(-10px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
+          "0%": {
+            opacity: "0",
+            transform: "translateY(-8px) scale(0.995)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0) scale(1)",
+          },
         },
       },
       animation: {
         slideDown: "slideDown 0.5s ease-out forwards",
-        "fade-in": "fadeIn 0.5s ease-out forwards",
+        "fade-in": "fadeIn 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards",
       },
       spacing: {
-        customNav: "7.25rem", // Add custom spacing
+        customNav: "7.25rem",
       },
       colors: {
         "body-grey": "rgb(18, 18, 18)",
@@ -37,4 +43,5 @@ const config: Config = {
   },
   plugins: [],
 };
+
 export default config;

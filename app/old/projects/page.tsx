@@ -1,11 +1,10 @@
 import React from "react";
 import Link from "next/link";
-import { GITDIAGRAM_DESCRIPTION } from "@/lib/gitdiagram";
 
 const projects = [
   {
     title: "GitDiagram",
-    desc: GITDIAGRAM_DESCRIPTION,
+    desc: "Instantly visualize any GitHub repository as an interactive diagram. 300,000+ users, 15,000+ stars.",
     link: "https://gitdiagram.com",
   },
   {

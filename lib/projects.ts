@@ -1,5 +1,3 @@
-import { GITDIAGRAM_DESCRIPTION, GITDIAGRAM_SUMMARY } from "@/lib/gitdiagram";
-
 export interface Project {
   title: string;
   desc: string;
@@ -12,8 +10,8 @@ export interface Project {
 export const projects: Project[] = [
   {
     title: "GitDiagram",
-    desc: GITDIAGRAM_DESCRIPTION,
-    summary: GITDIAGRAM_SUMMARY,
+    desc: "Instantly visualize any GitHub repository as an interactive diagram. 300,000+ users, 15,000+ stars.",
+    summary: "Visualize any codebase, 300k+ users, 15k+ stars",
     link: "https://gitdiagram.com",
     code: "https://github.com/ahmedkhaleel2004/gitdiagram",
     image: "/gitdiagram.png",
@@ -21,7 +19,7 @@ export const projects: Project[] = [
   {
     title: "DeepEnd",
     desc: "GDSC Solution Winner: A GPT-4 powered programming project copilot using project based learning",
-    summary: "GDG @ McMaster Winner: GPT-4 powered programming project copilot",
+    summary: "GDG @ McMaster Winner, programming project copilot",
     link: "https://github.com/ahmedkhaleel2004/DeepEnd-hackathon",
     code: "https://github.com/ahmedkhaleel2004/DeepEnd-hackathon",
     image: "/deepend.png",
@@ -29,7 +27,7 @@ export const projects: Project[] = [
   {
     title: "Intellex",
     desc: "DeltaHacks X Winner: A direct P2P decentralized skill sharing platform",
-    summary: "DeltaHacks X Winner: P2P decentralized skill sharing platform",
+    summary: "DeltaHacks X Winner: decentralized skill sharing platform",
     link: "https://github.com/ahmedkhaleel2004/intellex",
     code: "https://github.com/ahmedkhaleel2004/intellex",
     image: "/intellex.jpeg",
@@ -46,7 +44,7 @@ export const projects: Project[] = [
   {
     title: "C++ Snake",
     desc: "Fully functional game engine for Snake with multiplayer, OOP, memory safety, and more.",
-    summary: "Fun low-level game engine with multiplayer and OOP",
+    summary: "Low-level game engine",
     link: "https://github.com/ahmedkhaleel2004/Snake-CPP",
     code: "https://github.com/ahmedkhaleel2004/Snake-CPP",
     image: "/cppsnake.gif",
@@ -70,7 +68,7 @@ export const projects: Project[] = [
   {
     title: "ParkFinder",
     desc: "Scans parking lots with YOLOv8 and finds shortest routes using A* pathfinding.",
-    summary: "Computer vision + A* for parking",
+    summary: "Computer vision, A* for parking",
     link: "https://github.com/ahmedkhaleel2004/MEC-2023",
     code: "https://github.com/ahmedkhaleel2004/MEC-2023",
     image: "/parkfinder.png",

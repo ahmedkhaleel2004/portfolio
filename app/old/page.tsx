@@ -1,8 +1,4 @@
 import React from "react";
-import {
-  GITDIAGRAM_STARS,
-  GITDIAGRAM_USERS,
-} from "@/lib/gitdiagram";
 import ClientWord from "../components/ClientWord";
 
 const Home: React.FC = () => {
@@ -42,7 +38,7 @@ const Home: React.FC = () => {
         >
           GitDiagram
         </a>{" "}
-        to {GITDIAGRAM_USERS} users and {GITDIAGRAM_STARS} stars ⭐.
+        to 300,000+ users and 15,000+ stars ⭐.
       </p>
       <p className="mb-6">
         When I&apos;m not clicking on virtual heads 🎮 and improving myself 💪🏼,

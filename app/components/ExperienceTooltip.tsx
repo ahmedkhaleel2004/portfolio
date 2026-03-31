@@ -1,6 +1,15 @@
 "use client";
 
-import React, { useState, useRef, ReactNode, useEffect } from "react";
+import {
+  ReactNode,
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useRef,
+  useState,
+  type FocusEvent,
+  type MouseEvent,
+} from "react";
 import { createPortal } from "react-dom";
 
 interface ExperienceTooltipProps {
@@ -16,86 +25,137 @@ const ExperienceTooltip = ({
   company,
   description,
 }: ExperienceTooltipProps) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const lastMoveTime = useRef<number>(0);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const tooltipId = useId();
+  const triggerRef = useRef<HTMLDivElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
-  const portalTarget = typeof document === "undefined" ? null : document.body;
+  const rafRef = useRef<number | null>(null);
+  const pointerRef = useRef({ x: 0, y: 0 });
+  const [isVisible, setIsVisible] = useState(false);
+  const [canPreview, setCanPreview] = useState(false);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const mediaQuery = window.matchMedia(
+      "(min-width: 768px) and (hover: hover) and (pointer: fine)",
+    );
+
+    const syncPreviewCapability = () => {
+      setCanPreview(mediaQuery.matches);
+      if (!mediaQuery.matches) {
+        setIsVisible(false);
+      }
+    };
+
+    syncPreviewCapability();
+    mediaQuery.addEventListener("change", syncPreviewCapability);
+
     return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      mediaQuery.removeEventListener("change", syncPreviewCapability);
     };
   }, []);
 
-  const updatePosition = (e: React.MouseEvent) => {
-    const now = Date.now();
-    // Throttle position updates to every 16ms (roughly 60fps)
-    if (now - lastMoveTime.current > 5) {
-      // Calculate tooltip height (default estimate if ref not available)
-      const tooltipHeight = tooltipRef.current
-        ? tooltipRef.current.offsetHeight
-        : 150; // Estimate based on content
+  function updateTooltipPosition() {
+    rafRef.current = null;
 
-      setPosition({
-        x: e.clientX,
-        y: e.clientY - tooltipHeight - 15, // Position above cursor with a margin
-      });
-      lastMoveTime.current = now;
-    }
-  };
+    const tooltip = tooltipRef.current;
+    if (!tooltip) return;
 
-  const showTooltip = (e: React.MouseEvent) => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-      timeoutRef.current = null;
+    const tooltipRect = tooltip.getBoundingClientRect();
+    const padding = 16;
+    const x = Math.min(
+      Math.max(padding, pointerRef.current.x),
+      window.innerWidth - tooltipRect.width - padding,
+    );
+    const y = Math.min(
+      Math.max(padding, pointerRef.current.y - tooltipRect.height - 16),
+      window.innerHeight - tooltipRect.height - padding,
+    );
+    tooltip.style.left = `${x}px`;
+    tooltip.style.top = `${y}px`;
+  }
+
+  function schedulePositionUpdate() {
+    if (rafRef.current !== null) return;
+    rafRef.current = requestAnimationFrame(updateTooltipPosition);
+  }
+
+  useLayoutEffect(() => {
+    if (!isVisible || !canPreview) return;
+
+    updateTooltipPosition();
+
+    return () => {
+      if (rafRef.current !== null) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
+      }
+    };
+  }, [canPreview, isVisible]);
+
+  const showTooltip = (
+    event?: MouseEvent<HTMLDivElement> | FocusEvent<HTMLDivElement>,
+  ) => {
+    if (!canPreview) return;
+
+    if (event && "clientX" in event) {
+      pointerRef.current = { x: event.clientX + 16, y: event.clientY };
+    } else {
+      const rect = triggerRef.current?.getBoundingClientRect();
+      if (rect) {
+        pointerRef.current = {
+          x: rect.left + 16,
+          y: rect.top + rect.height / 2,
+        };
+      }
     }
 
-    updatePosition(e);
-    if (!isVisible) {
-      setIsVisible(true);
-    }
+    setIsVisible(true);
   };
 
   const hideTooltip = () => {
     setIsVisible(false);
   };
 
+  const handleMouseMove = (event: MouseEvent<HTMLDivElement>) => {
+    if (!canPreview) return;
+
+    pointerRef.current = { x: event.clientX + 16, y: event.clientY };
+    schedulePositionUpdate();
+  };
+
   return (
     <>
       <div
+        ref={triggerRef}
+        aria-describedby={isVisible ? tooltipId : undefined}
         className="relative cursor-default select-none"
+        onFocus={showTooltip}
+        onBlur={hideTooltip}
         onMouseEnter={showTooltip}
         onMouseLeave={hideTooltip}
-        onMouseMove={updatePosition}
+        onMouseMove={handleMouseMove}
       >
         {children}
       </div>
 
-      {portalTarget &&
+      {canPreview &&
         isVisible &&
+        typeof document !== "undefined" &&
         createPortal(
           <div
-            className="fixed z-[9999]"
-            style={{
-              top: `${position.y}px`,
-              left: `${position.x}px`,
-              pointerEvents: "none",
-            }}
+            id={tooltipId}
             ref={tooltipRef}
+            className="pointer-events-none fixed z-[9999] hidden w-72 rounded-lg bg-neutral-900 p-5 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.5),0_0_5px_rgba(0,0,0,0.2)] ring-1 ring-inset ring-white/10 sm:w-96 md:block"
+            style={{ top: 16, left: 16 }}
           >
-            <div className="w-72 overflow-hidden rounded-lg bg-neutral-900 p-5 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.5),0_0_5px_rgba(0,0,0,0.2)] sm:w-96">
-              <div className="mb-3">
-                <h3 className="text-base font-semibold">{title}</h3>
-                <p className="text-sm text-neutral-400">{company}</p>
-                <p className="mt-2 text-sm text-neutral-300">{description}</p>
-              </div>
-
-              <div className="pointer-events-none absolute inset-0 rounded-lg ring-1 ring-inset ring-white/10"></div>
+            <div className="mb-3">
+              <h3 className="text-base font-semibold">{title}</h3>
+              <p className="text-sm text-neutral-400">{company}</p>
+              <p className="mt-2 text-sm text-neutral-300">{description}</p>
             </div>
           </div>,
-          portalTarget,
+          document.body,
         )}
     </>
   );
