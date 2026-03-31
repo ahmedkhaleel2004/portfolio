@@ -29,7 +29,7 @@ jobs:
           fi
 
           AUTHOR=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json author --jq '.author.login')
-          if [ "$AUTHOR" != "dependabot[bot]" ]; then
+          if [ "$AUTHOR" != "dependabot[bot]" ] && [ "$AUTHOR" != "app/dependabot" ]; then
             echo "Pull request #$PR_NUMBER is not authored by Dependabot."
             exit 0
           fi
