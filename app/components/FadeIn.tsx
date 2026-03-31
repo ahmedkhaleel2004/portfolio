@@ -10,9 +10,9 @@ const FadeIn = ({ children, delay = 0 }: FadeInProps) => {
     <div
       className="animate-fade-in motion-reduce:animate-none"
       style={{
+        opacity: 0,
         animationDelay: `${delay}ms`,
         animationFillMode: "forwards",
-        willChange: "opacity, transform, filter",
       }}
     >
       {children}

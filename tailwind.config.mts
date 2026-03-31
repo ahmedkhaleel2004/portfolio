@@ -16,17 +16,17 @@ const config: Config = {
         fadeIn: {
           "0%": {
             opacity: "0",
-            transform: "translateY(-8px) scale(0.995)",
+            filter: "blur(8px)",
           },
           "100%": {
             opacity: "1",
-            transform: "translateY(0) scale(1)",
+            filter: "blur(0px)",
           },
         },
       },
       animation: {
         slideDown: "slideDown 0.5s ease-out forwards",
-        "fade-in": "fadeIn 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "fade-in": "fadeIn 0.4s ease-out forwards",
       },
       spacing: {
         customNav: "7.25rem",
