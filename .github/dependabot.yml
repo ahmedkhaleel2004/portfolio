@@ -6,6 +6,7 @@ multi-ecosystem-groups:
       day: "monday"
       time: "06:00"
       timezone: "America/Toronto"
+    open-pull-requests-limit: 1
 
 updates:
   - package-ecosystem: "bun"
@@ -18,7 +19,6 @@ updates:
       semver-major-days: 3
       semver-minor-days: 3
       semver-patch-days: 3
-    open-pull-requests-limit: 1
     versioning-strategy: "increase"
 
   - package-ecosystem: "github-actions"
@@ -28,4 +28,3 @@ updates:
     multi-ecosystem-group: "all-updates"
     cooldown:
       default-days: 3
-    open-pull-requests-limit: 1
