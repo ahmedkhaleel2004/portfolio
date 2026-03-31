@@ -26,6 +26,7 @@ const ProjectTooltip = ({
   description,
   imageSrc,
 }: ProjectTooltipProps) => {
+  const isAnimatedImage = imageSrc?.toLowerCase().endsWith(".gif") ?? false;
   const tooltipId = useId();
   const triggerRef = useRef<HTMLDivElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
@@ -165,6 +166,7 @@ const ProjectTooltip = ({
                   className="h-auto w-full"
                   loading="eager"
                   sizes="384px"
+                  unoptimized={isAnimatedImage}
                 />
               </div>
             )}
