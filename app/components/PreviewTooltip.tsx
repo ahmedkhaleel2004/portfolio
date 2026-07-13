@@ -1,64 +1,46 @@
 "use client";
 
+import Image from "next/image";
 import {
-  ReactNode,
-  useEffect,
+  type FocusEvent,
+  type MouseEvent,
+  type ReactNode,
   useId,
   useLayoutEffect,
   useRef,
   useState,
-  type FocusEvent,
-  type MouseEvent,
 } from "react";
 import { createPortal } from "react-dom";
-import Image from "next/image";
 
-interface ProjectTooltipProps {
+const PREVIEW_QUERY =
+  "(min-width: 768px) and (hover: hover) and (pointer: fine)";
+
+interface PreviewTooltipProps {
   children: ReactNode;
   title: string;
   description: string;
+  subtitle?: string;
   imageSrc?: string;
+  focusable?: boolean;
 }
 
-const ProjectTooltip = ({
+export default function PreviewTooltip({
   children,
   title,
   description,
+  subtitle,
   imageSrc,
-}: ProjectTooltipProps) => {
-  const isAnimatedImage = imageSrc?.toLowerCase().endsWith(".gif") ?? false;
+  focusable = false,
+}: PreviewTooltipProps) {
   const tooltipId = useId();
   const triggerRef = useRef<HTMLDivElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
-  const rafRef = useRef<number | null>(null);
+  const animationFrameRef = useRef<number | null>(null);
   const pointerRef = useRef({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
-  const [canPreview, setCanPreview] = useState(false);
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const mediaQuery = window.matchMedia(
-      "(min-width: 768px) and (hover: hover) and (pointer: fine)",
-    );
-
-    const syncPreviewCapability = () => {
-      setCanPreview(mediaQuery.matches);
-      if (!mediaQuery.matches) {
-        setIsVisible(false);
-      }
-    };
-
-    syncPreviewCapability();
-    mediaQuery.addEventListener("change", syncPreviewCapability);
-
-    return () => {
-      mediaQuery.removeEventListener("change", syncPreviewCapability);
-    };
-  }, []);
-
-  function updateTooltipPosition() {
-    rafRef.current = null;
+  const updatePosition = () => {
+    animationFrameRef.current = null;
 
     const tooltip = tooltipRef.current;
     if (!tooltip) return;
@@ -73,32 +55,33 @@ const ProjectTooltip = ({
       Math.max(padding, pointerRef.current.y - tooltipRect.height - 16),
       window.innerHeight - tooltipRect.height - padding,
     );
+
     tooltip.style.left = `${x}px`;
     tooltip.style.top = `${y}px`;
-  }
+  };
 
-  function schedulePositionUpdate() {
-    if (rafRef.current !== null) return;
-    rafRef.current = requestAnimationFrame(updateTooltipPosition);
-  }
+  const schedulePositionUpdate = () => {
+    if (animationFrameRef.current !== null) return;
+    animationFrameRef.current = requestAnimationFrame(updatePosition);
+  };
 
   useLayoutEffect(() => {
-    if (!isVisible || !canPreview) return;
+    if (!isVisible) return;
 
-    updateTooltipPosition();
+    updatePosition();
 
     return () => {
-      if (rafRef.current !== null) {
-        cancelAnimationFrame(rafRef.current);
-        rafRef.current = null;
+      if (animationFrameRef.current !== null) {
+        cancelAnimationFrame(animationFrameRef.current);
+        animationFrameRef.current = null;
       }
     };
-  }, [canPreview, isVisible]);
+  }, [isVisible]);
 
   const showTooltip = (
     event?: MouseEvent<HTMLDivElement> | FocusEvent<HTMLDivElement>,
   ) => {
-    if (!canPreview) return;
+    if (!window.matchMedia(PREVIEW_QUERY).matches) return;
 
     if (event && "clientX" in event) {
       pointerRef.current = { x: event.clientX + 16, y: event.clientY };
@@ -115,44 +98,48 @@ const ProjectTooltip = ({
     setIsVisible(true);
   };
 
-  const hideTooltip = () => {
-    setIsVisible(false);
-  };
-
   const handleMouseMove = (event: MouseEvent<HTMLDivElement>) => {
-    if (!canPreview) return;
+    if (!window.matchMedia(PREVIEW_QUERY).matches) return;
 
     pointerRef.current = { x: event.clientX + 16, y: event.clientY };
     schedulePositionUpdate();
   };
+
+  const isAnimatedImage = imageSrc?.toLowerCase().endsWith(".gif") ?? false;
 
   return (
     <>
       <div
         ref={triggerRef}
         aria-describedby={isVisible ? tooltipId : undefined}
+        aria-label={
+          focusable ? `${title}, ${subtitle}. ${description}` : undefined
+        }
         className="relative cursor-default select-none"
+        tabIndex={focusable ? 0 : undefined}
+        onBlur={() => setIsVisible(false)}
         onFocus={showTooltip}
-        onBlur={hideTooltip}
         onMouseEnter={showTooltip}
-        onMouseLeave={hideTooltip}
+        onMouseLeave={() => setIsVisible(false)}
         onMouseMove={handleMouseMove}
       >
         {children}
       </div>
 
-      {canPreview &&
-        isVisible &&
-        typeof document !== "undefined" &&
+      {isVisible &&
         createPortal(
           <div
             id={tooltipId}
             ref={tooltipRef}
-            className="pointer-events-none fixed z-[9999] hidden w-72 rounded-lg bg-neutral-900 p-5 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.5),0_0_5px_rgba(0,0,0,0.2)] ring-1 ring-inset ring-white/10 sm:w-96 md:block"
+            role="tooltip"
+            className="pointer-events-none fixed z-[9999] hidden w-72 rounded-lg bg-neutral-900 p-5 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.5),0_0_5px_rgba(0,0,0,0.2)] ring-1 ring-white/10 ring-inset sm:w-96 md:block"
             style={{ top: 16, left: 16 }}
           >
             <div className="mb-3">
               <h3 className="text-base font-semibold">{title}</h3>
+              {subtitle && (
+                <p className="text-sm text-neutral-400">{subtitle}</p>
+              )}
               <p className="mt-2 text-sm text-neutral-300">{description}</p>
             </div>
 
@@ -160,7 +147,7 @@ const ProjectTooltip = ({
               <div className="overflow-hidden rounded-md shadow-md">
                 <Image
                   src={imageSrc}
-                  alt={title}
+                  alt=""
                   width={600}
                   height={300}
                   className="h-auto w-full"
@@ -175,6 +162,4 @@ const ProjectTooltip = ({
         )}
     </>
   );
-};
-
-export default ProjectTooltip;
+}

@@ -1,16 +1,24 @@
 "use client";
 
-import { useRef, useState } from "react";
-
-const EMAIL_ADDRESS = "ahmedkhaleel2004@gmail.com";
+import { useEffect, useRef, useState } from "react";
+import { siteConfig } from "@/lib/site";
 
 const CopyEmail = () => {
   const timeoutRef = useRef<number | null>(null);
   const [copied, setCopied] = useState(false);
 
+  useEffect(
+    () => () => {
+      if (timeoutRef.current !== null) {
+        window.clearTimeout(timeoutRef.current);
+      }
+    },
+    [],
+  );
+
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(EMAIL_ADDRESS);
+      await navigator.clipboard.writeText(siteConfig.email);
       setCopied(true);
 
       if (timeoutRef.current !== null) {
@@ -33,9 +41,13 @@ const CopyEmail = () => {
         onClick={handleCopy}
         className="cursor-pointer text-gray-400 hover:underline"
       >
-        {EMAIL_ADDRESS}
+        {siteConfig.email}
       </button>
-      {copied && <span className="ml-2 text-xs text-neutral-500">copied</span>}
+      {copied && (
+        <span role="status" className="ml-2 text-xs text-neutral-500">
+          copied
+        </span>
+      )}
     </span>
   );
 };

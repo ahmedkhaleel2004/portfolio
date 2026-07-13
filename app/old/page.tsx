@@ -1,28 +1,27 @@
-import React from "react";
 import ClientWord from "../components/ClientWord";
 
-const Home: React.FC = () => {
-  const words = [
-    "portfolio",
-    "server",
-    "node",
-    "arena",
-    "dungeon",
-    "lobby",
-    "environment",
-    "home",
-    "interface",
-  ];
+const WORDS = [
+  "portfolio",
+  "server",
+  "node",
+  "arena",
+  "dungeon",
+  "lobby",
+  "environment",
+  "home",
+  "interface",
+] as const;
 
+function Home() {
   return (
-    <main className="p-8 font-body">
+    <main className="font-body p-8">
       <h1 className="mb-8 text-4xl">👋🏼 Hey, I&apos;m Ahmed.</h1>
       <p className="mb-6">
         Welcome to my{" "}
         <ClientWord
           initial="portfolio"
-          words={words}
-          className="cursor-pointer underline transition-all duration-200 ease-in-out hover:text-nice-blue"
+          words={WORDS}
+          className="hover:text-nice-blue cursor-pointer underline transition-all duration-200 ease-in-out"
         />
         !
       </p>
@@ -34,7 +33,7 @@ const Home: React.FC = () => {
         Recently, I shipped{" "}
         <a
           href="https://gitdiagram.com"
-          className="underline transition-colors duration-200 ease-in-out hover:text-nice-blue"
+          className="hover:text-nice-blue underline transition-colors duration-200 ease-in-out"
         >
           GitDiagram
         </a>{" "}
@@ -49,7 +48,7 @@ const Home: React.FC = () => {
         Contact me at{" "}
         <a
           href="mailto:ahmedkhaleel2004@gmail.com"
-          className="underline transition-colors duration-200 ease-in-out hover:text-nice-blue"
+          className="hover:text-nice-blue underline transition-colors duration-200 ease-in-out"
         >
           ahmedkhaleel2004@gmail.com
         </a>
@@ -57,6 +56,6 @@ const Home: React.FC = () => {
       </p>
     </main>
   );
-};
+}
 
 export default Home;
