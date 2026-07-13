@@ -14,9 +14,9 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.3.0",
     "@fortawesome/free-brands-svg-icons": "^7.3.0",
-    "@fortawesome/react-fontawesome": "^3.3.1",
+    "@fortawesome/react-fontawesome": "^3.4.0",
     "next": "^16.2.10",
-    "posthog-js": "^1.396.5",
+    "posthog-js": "^1.399.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-icons": "^5.7.0"
@@ -24,15 +24,15 @@
   "devDependencies": {
     "@icons-pack/react-simple-icons": "^13.13.0",
     "@tailwindcss/postcss": "^4.3.2",
-    "@types/node": "^26.1.0",
+    "@types/node": "^26.1.1",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "eslint": "9.39.4",
     "eslint-config-next": "^16.2.10",
     "postcss": "^8.5.16",
-    "prettier": "^3.9.4",
+    "prettier": "^3.9.5",
     "prettier-plugin-tailwindcss": "^0.8.0",
     "tailwindcss": "^4.3.2",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   }
 }
