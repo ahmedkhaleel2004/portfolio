@@ -9,7 +9,10 @@ const NAV_BUTTONS = [
 
 function Navbar() {
   return (
-    <div className="mb-4 flex justify-center sm:mt-32 sm:mb-0 sm:flex-col sm:justify-normal sm:space-y-4">
+    <nav
+      aria-label="Old portfolio"
+      className="mb-4 flex justify-center sm:mt-32 sm:mb-0 sm:flex-col sm:justify-normal sm:space-y-4"
+    >
       {NAV_BUTTONS.map((button, index) => (
         <ClientNavButton
           key={button.path}
@@ -18,7 +21,7 @@ function Navbar() {
           index={index}
         />
       ))}
-    </div>
+    </nav>
   );
 }
 

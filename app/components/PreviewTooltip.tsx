@@ -81,9 +81,10 @@ export default function PreviewTooltip({
   const showTooltip = (
     event?: MouseEvent<HTMLDivElement> | FocusEvent<HTMLDivElement>,
   ) => {
-    if (!window.matchMedia(PREVIEW_QUERY).matches) return;
+    const isPointerEvent = event && "clientX" in event;
+    if (isPointerEvent && !window.matchMedia(PREVIEW_QUERY).matches) return;
 
-    if (event && "clientX" in event) {
+    if (isPointerEvent) {
       pointerRef.current = { x: event.clientX + 16, y: event.clientY };
     } else {
       const rect = triggerRef.current?.getBoundingClientRect();

@@ -3,9 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 import { siteConfig } from "@/lib/site";
 
+type CopyStatus = "idle" | "copied" | "failed";
+
 const CopyEmail = () => {
   const timeoutRef = useRef<number | null>(null);
-  const [copied, setCopied] = useState(false);
+  const [status, setStatus] = useState<CopyStatus>("idle");
 
   useEffect(
     () => () => {
@@ -19,19 +21,19 @@ const CopyEmail = () => {
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(siteConfig.email);
-      setCopied(true);
-
-      if (timeoutRef.current !== null) {
-        window.clearTimeout(timeoutRef.current);
-      }
-
-      timeoutRef.current = window.setTimeout(() => {
-        setCopied(false);
-        timeoutRef.current = null;
-      }, 1500);
+      setStatus("copied");
     } catch {
-      setCopied(false);
+      setStatus("failed");
     }
+
+    if (timeoutRef.current !== null) {
+      window.clearTimeout(timeoutRef.current);
+    }
+
+    timeoutRef.current = window.setTimeout(() => {
+      setStatus("idle");
+      timeoutRef.current = null;
+    }, 1500);
   };
 
   return (
@@ -39,13 +41,14 @@ const CopyEmail = () => {
       <button
         type="button"
         onClick={handleCopy}
+        aria-label="Copy email address"
         className="cursor-pointer text-gray-400 hover:underline"
       >
         {siteConfig.email}
       </button>
-      {copied && (
+      {status !== "idle" && (
         <span role="status" className="ml-2 text-xs text-neutral-500">
-          copied
+          {status === "copied" ? "copied" : "copy failed"}
         </span>
       )}
     </span>
