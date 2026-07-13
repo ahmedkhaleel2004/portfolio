@@ -16,7 +16,7 @@ export function proxy(request: NextRequest) {
   }
 
   if (pathname.endsWith("/")) {
-    const url = request.nextUrl.clone();
+    const url = new URL(request.url);
     url.pathname = pathname.slice(0, -1);
     return NextResponse.redirect(url, 308);
   }
@@ -25,5 +25,7 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)"],
+  matcher: [
+    "/((?!_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)",
+  ],
 };

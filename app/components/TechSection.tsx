@@ -1,4 +1,4 @@
-import React, { type ReactElement } from "react";
+import type { ComponentType } from "react";
 import {
   SiReact,
   SiJavascript,
@@ -32,87 +32,95 @@ import {
   SiPrometheus,
   SiGrafana,
   SiDigitalocean,
-} from "@icons-pack/react-simple-icons";
+} from "react-icons/si";
 
 import { FaAws, FaJava } from "react-icons/fa";
 import { TbAssembly } from "react-icons/tb";
 
-const TechSection: React.FC<{ activeSection: string }> = ({
-  activeSection,
-}) => {
-  const iconClass = "w-6 h-6"; // Tailwind CSS classes for consistent icon size
+export type TechSectionId = "languages" | "web" | "ml" | "tools";
 
-  const languagesIcons: { icon: ReactElement; name: string }[] = [
-    { icon: <SiPython className={iconClass} />, name: "Python" },
-    { icon: <SiTypescript className={iconClass} />, name: "TypeScript" },
-    { icon: <SiCplusplus className={iconClass} />, name: "C++" },
-    { icon: <FaJava className={iconClass} />, name: "Java" },
-    { icon: <SiPostgresql className={iconClass} />, name: "SQL" },
-    { icon: <SiJavascript className={iconClass} />, name: "JavaScript" },
-    { icon: <SiC className={iconClass} />, name: "C" },
-  ];
+type IconComponent = ComponentType<{ className?: string }>;
 
-  const webIcons: { icon: ReactElement; name: string }[] = [
-    { icon: <SiReact className={iconClass} />, name: "React" },
-    { icon: <SiNodedotjs className={iconClass} />, name: "Node.js" },
-    { icon: <SiMongodb className={iconClass} />, name: "MongoDB" },
-    { icon: <SiFlask className={iconClass} />, name: "Flask" },
-    { icon: <SiSocketdotio className={iconClass} />, name: "Socket.io" },
-    { icon: <SiNextdotjs className={iconClass} />, name: "Next.js" },
-    { icon: <SiNginx className={iconClass} />, name: "Nginx" },
-    { icon: <SiDjango className={iconClass} />, name: "Django" },
-    { icon: <SiPrisma className={iconClass} />, name: "Prisma" },
-    { icon: <SiTailwindcss className={iconClass} />, name: "Tailwind CSS" },
-    { icon: <SiHtml5 className={iconClass} />, name: "HTML" },
-    { icon: <SiCss className={iconClass} />, name: "CSS" },
-  ];
+interface TechIcon {
+  Icon: IconComponent;
+  name: string;
+}
 
-  const mlIcons: { icon: ReactElement; name: string }[] = [
-    { icon: <SiTensorflow className={iconClass} />, name: "TensorFlow" },
-    { icon: <SiPytorch className={iconClass} />, name: "PyTorch" },
-    { icon: <SiPandas className={iconClass} />, name: "Pandas" },
-    { icon: <SiScikitlearn className={iconClass} />, name: "Scikit-Learn" },
-    { icon: <SiOpencv className={iconClass} />, name: "OpenCV" },
-    { icon: <SiNumpy className={iconClass} />, name: "NumPy" },
-    { icon: <TbAssembly className={iconClass} />, name: "YOLO" },
-    { icon: <SiR className={iconClass} />, name: "R" },
-  ];
+const ICON_CLASS = "w-6 h-6";
 
-  const toolsIcons: { icon: ReactElement; name: string }[] = [
-    { icon: <SiDocker className={iconClass} />, name: "Docker" },
-    { icon: <SiFirebase className={iconClass} />, name: "Firebase" },
-    { icon: <SiJest className={iconClass} />, name: "Jest" },
-    { icon: <SiGrafana className={iconClass} />, name: "Grafana" },
-    { icon: <SiSelenium className={iconClass} />, name: "Selenium" },
-    { icon: <SiPrometheus className={iconClass} />, name: "Prometheus" },
-    { icon: <SiDigitalocean className={iconClass} />, name: "DigitalOcean" },
-    { icon: <FaAws className={iconClass} />, name: "AWS" },
-  ];
+const LANGUAGE_ICONS = [
+  { Icon: SiPython, name: "Python" },
+  { Icon: SiTypescript, name: "TypeScript" },
+  { Icon: SiCplusplus, name: "C++" },
+  { Icon: FaJava, name: "Java" },
+  { Icon: SiPostgresql, name: "SQL" },
+  { Icon: SiJavascript, name: "JavaScript" },
+  { Icon: SiC, name: "C" },
+] as const satisfies readonly TechIcon[];
 
-  const renderIcons = (icons: { icon: ReactElement; name: string }[]) => (
+const WEB_ICONS = [
+  { Icon: SiReact, name: "React" },
+  { Icon: SiNodedotjs, name: "Node.js" },
+  { Icon: SiMongodb, name: "MongoDB" },
+  { Icon: SiFlask, name: "Flask" },
+  { Icon: SiSocketdotio, name: "Socket.io" },
+  { Icon: SiNextdotjs, name: "Next.js" },
+  { Icon: SiNginx, name: "Nginx" },
+  { Icon: SiDjango, name: "Django" },
+  { Icon: SiPrisma, name: "Prisma" },
+  { Icon: SiTailwindcss, name: "Tailwind CSS" },
+  { Icon: SiHtml5, name: "HTML" },
+  { Icon: SiCss, name: "CSS" },
+] as const satisfies readonly TechIcon[];
+
+const ML_ICONS = [
+  { Icon: SiTensorflow, name: "TensorFlow" },
+  { Icon: SiPytorch, name: "PyTorch" },
+  { Icon: SiPandas, name: "Pandas" },
+  { Icon: SiScikitlearn, name: "Scikit-Learn" },
+  { Icon: SiOpencv, name: "OpenCV" },
+  { Icon: SiNumpy, name: "NumPy" },
+  { Icon: TbAssembly, name: "YOLO" },
+  { Icon: SiR, name: "R" },
+] as const satisfies readonly TechIcon[];
+
+const TOOL_ICONS = [
+  { Icon: SiDocker, name: "Docker" },
+  { Icon: SiFirebase, name: "Firebase" },
+  { Icon: SiJest, name: "Jest" },
+  { Icon: SiGrafana, name: "Grafana" },
+  { Icon: SiSelenium, name: "Selenium" },
+  { Icon: SiPrometheus, name: "Prometheus" },
+  { Icon: SiDigitalocean, name: "DigitalOcean" },
+  { Icon: FaAws, name: "AWS" },
+] as const satisfies readonly TechIcon[];
+
+function renderIcons(icons: readonly TechIcon[]) {
+  return (
     <ul className="mt-6 grid grid-cols-2 gap-6">
-      {icons.map(({ icon, name }, index) => (
+      {icons.map(({ Icon, name }, index) => (
         <li
-          key={index}
-          className={`flex translate-y-4 animate-slideDown items-center gap-2 opacity-0`}
+          key={name}
+          className="animate-slideDown flex translate-y-4 items-center gap-2 opacity-0"
           style={{ animationDelay: `${index * 50}ms` }}
         >
-          {icon}
+          <Icon className={ICON_CLASS} />
           <span>{name}</span>
         </li>
       ))}
     </ul>
   );
+}
 
+function TechSection({ activeSection }: { activeSection: TechSectionId }) {
   return (
     <div className={`min-h-[264px] transition-opacity ${activeSection}`}>
-      {/* manually set the height to prevent layout shift */}
-      {activeSection === "languages" && renderIcons(languagesIcons)}
-      {activeSection === "web" && renderIcons(webIcons)}
-      {activeSection === "ml" && renderIcons(mlIcons)}
-      {activeSection === "tools" && renderIcons(toolsIcons)}
+      {activeSection === "languages" && renderIcons(LANGUAGE_ICONS)}
+      {activeSection === "web" && renderIcons(WEB_ICONS)}
+      {activeSection === "ml" && renderIcons(ML_ICONS)}
+      {activeSection === "tools" && renderIcons(TOOL_ICONS)}
     </div>
   );
-};
+}
 
 export default TechSection;

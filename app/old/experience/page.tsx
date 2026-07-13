@@ -1,5 +1,3 @@
-import React from "react";
-
 const positions = [
   {
     title: "Founder",
@@ -31,28 +29,28 @@ const positions = [
     date: "Jan. 2024 - Apr. 2024",
     desc: "Developed and taught hands-on Machine Learning workshops for 100+ students, covering data preprocessing, CNNs using TensorFlow, and live coding on Google Colab",
   },
-];
+] as const;
 
-const Experience: React.FC = () => {
+function Experience() {
   return (
     <div>
-      <main className="p-8 font-body">
+      <main className="font-body p-8">
         <p>Explore my working background!</p>
-        <hr className="my-4 border-t-2 border-body-light-grey" />
-        {positions.map((position, index) => (
-          <div key={index}>
+        <hr className="border-body-light-grey my-4 border-t-2" />
+        {positions.map((position) => (
+          <div key={`${position.company}-${position.title}`}>
             <p className="font-bold">{position.title}</p>
             <p className="mb-2">
               <i>{position.company}</i>
             </p>
             <p className="mb-2">{position.desc}</p>
             <p>{position.date}</p>
-            <hr className="my-4 border-t-2 border-body-light-grey" />
+            <hr className="border-body-light-grey my-4 border-t-2" />
           </div>
         ))}
       </main>
     </div>
   );
-};
+}
 
 export default Experience;

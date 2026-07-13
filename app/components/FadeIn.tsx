@@ -8,9 +8,8 @@ interface FadeInProps {
 const FadeIn = ({ children, delay = 0 }: FadeInProps) => {
   return (
     <div
-      className="animate-fade-in motion-reduce:animate-none"
+      className="animate-fade-in opacity-0 motion-reduce:animate-none motion-reduce:opacity-100"
       style={{
-        opacity: 0,
         animationDelay: `${delay}ms`,
         animationFillMode: "forwards",
       }}

@@ -1,37 +1,36 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 
 interface ClientWordProps {
   initial: string;
-  words: Array<string>;
+  words: readonly string[];
   className: string;
 }
 
-const ClientWord: React.FC<ClientWordProps> = ({
-  initial,
-  words,
-  className,
-}) => {
+function ClientWord({ initial, words, className }: ClientWordProps) {
   const [currentWord, setCurrentWord] = useState(initial);
-  // event handler
-  const changeWord = () => {
-    if (words) {
-      const currentIndex = words.indexOf(currentWord);
-      let newIndex = currentIndex + 1;
-      if (newIndex === words.length) {
-        newIndex = 0;
-      }
 
-      const newWord = words[newIndex];
-      setCurrentWord(newWord);
+  const changeWord = () => {
+    if (words.length === 0) {
+      return;
     }
+
+    setCurrentWord((word) => {
+      const nextIndex = (words.indexOf(word) + 1) % words.length;
+      return words[nextIndex] ?? word;
+    });
   };
+
   return (
-    <span className={className} onClick={changeWord}>
+    <button
+      type="button"
+      className={`${className} inline appearance-none border-0 bg-transparent p-0 font-[inherit] text-inherit`}
+      onClick={changeWord}
+    >
       {currentWord}
-    </span>
+    </button>
   );
-};
+}
 
 export default ClientWord;

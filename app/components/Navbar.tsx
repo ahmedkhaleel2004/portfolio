@@ -1,20 +1,18 @@
-import React from "react";
 import ClientNavButton from "./ClientNavButton";
 
-const Navbar = () => {
-  const buttons = [
-    { name: "Home", path: "/old" },
-    { name: "About", path: "/old/about" },
-    { name: "Projects", path: "/old/projects" },
-    { name: "Experience", path: "/old/experience" },
-    // { name: "Resume", path: "/resume" },
-  ];
+const NAV_BUTTONS = [
+  { name: "Home", path: "/old" },
+  { name: "About", path: "/old/about" },
+  { name: "Projects", path: "/old/projects" },
+  { name: "Experience", path: "/old/experience" },
+] as const;
 
+function Navbar() {
   return (
-    <div className="mb-4 flex justify-center sm:mb-0 sm:mt-32 sm:flex-col sm:justify-normal sm:space-y-4">
-      {buttons.map((button, index) => (
+    <div className="mb-4 flex justify-center sm:mt-32 sm:mb-0 sm:flex-col sm:justify-normal sm:space-y-4">
+      {NAV_BUTTONS.map((button, index) => (
         <ClientNavButton
-          key={index}
+          key={button.path}
           text={button.name}
           path={button.path}
           index={index}
@@ -22,6 +20,6 @@ const Navbar = () => {
       ))}
     </div>
   );
-};
+}
 
 export default Navbar;

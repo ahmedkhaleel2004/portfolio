@@ -1,4 +1,3 @@
-import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons/faLinkedinIn";
@@ -11,19 +10,22 @@ const Footer = () => {
       <div className="flex justify-center space-x-4">
         <Link
           href="https://www.linkedin.com/in/ahmedkhaleel2004"
-          className="h-6 w-6 transition-all duration-200 ease-in-out hover:text-nice-blue"
+          aria-label="LinkedIn"
+          className="hover:text-nice-blue h-6 w-6 transition-all duration-200 ease-in-out"
         >
           <FontAwesomeIcon icon={faLinkedinIn} />
         </Link>
         <Link
           href="https://github.com/ahmedkhaleel2004"
-          className="h-6 w-6 transition-all duration-200 ease-in-out hover:text-nice-blue"
+          aria-label="GitHub"
+          className="hover:text-nice-blue h-6 w-6 transition-all duration-200 ease-in-out"
         >
           <FontAwesomeIcon icon={faGithub} />
         </Link>
         <Link
           href="https://x.com/ahmedkhaleel04"
-          className="h-6 w-6 transition-all duration-200 ease-in-out hover:text-nice-blue"
+          aria-label="X (Twitter)"
+          className="hover:text-nice-blue h-6 w-6 transition-all duration-200 ease-in-out"
         >
           <FontAwesomeIcon icon={faXTwitter} />
         </Link>

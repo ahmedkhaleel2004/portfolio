@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 
 const projects = [
@@ -47,19 +46,19 @@ const projects = [
     desc: "MEC 2022 Winner: Ship navigation system simulating and presenting data from a buoy network at a glance.",
     link: "https://github.com/ahmedkhaleel2004/MEC-2022",
   },
-];
+] as const;
 
-const Projects: React.FC = () => {
+function Projects() {
   return (
     <div>
-      <main className="p-8 font-body">
+      <main className="font-body p-8">
         <p>🔨 A list of my engineering masterpieces.</p>
-        <hr className="my-4 border-t-2 border-body-light-grey" />
-        {projects.map((project, index) => (
-          <div key={index}>
+        <hr className="border-body-light-grey my-4 border-t-2" />
+        {projects.map((project) => (
+          <div key={project.link}>
             <a
               href={project.link}
-              className="cursor-pointer font-bold underline transition-all duration-200 ease-in-out hover:text-nice-blue"
+              className="hover:text-nice-blue cursor-pointer font-bold underline transition-all duration-200 ease-in-out"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -70,7 +69,7 @@ const Projects: React.FC = () => {
         ))}
         <Link
           href="/"
-          className="cursor-pointer font-bold underline transition-all duration-200 ease-in-out hover:text-nice-blue"
+          className="hover:text-nice-blue cursor-pointer font-bold underline transition-all duration-200 ease-in-out"
         >
           Portfolio
         </Link>
@@ -80,6 +79,6 @@ const Projects: React.FC = () => {
       </main>
     </div>
   );
-};
+}
 
 export default Projects;
