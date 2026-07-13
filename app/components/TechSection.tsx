@@ -101,7 +101,7 @@ function renderIcons(icons: readonly TechIcon[]) {
       {icons.map(({ Icon, name }, index) => (
         <li
           key={name}
-          className="animate-slideDown flex translate-y-4 items-center gap-2 opacity-0"
+          className="animate-slideDown flex translate-y-4 items-center gap-2 opacity-0 motion-reduce:translate-y-0 motion-reduce:animate-none motion-reduce:opacity-100"
           style={{ animationDelay: `${index * 50}ms` }}
         >
           <Icon className={ICON_CLASS} />

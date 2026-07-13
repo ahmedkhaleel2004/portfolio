@@ -15,6 +15,7 @@ function ClientNavButton({ text, path, index }: ClientNavButtonProps) {
   return (
     <Link
       href={path}
+      aria-current={pathname === path ? "page" : undefined}
       className={`${index !== 3 ? "border-r" : ""} bg-body-grey font-body px-2 text-right transition-all duration-200 ease-in-out sm:border-none sm:px-0 ${
         pathname === path ? "text-nice-blue" : "hover:text-nice-blue text-white"
       }`}
