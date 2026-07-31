@@ -15,6 +15,12 @@ export const projects: Project[] = [
     image: "/gitdiagram.png",
   },
   {
+    title: "LeftRight",
+    desc: "A typing test that measures each hand's WPM, accuracy, and balance across multiple keyboard layouts.",
+    summary: "Compare left vs. right hand typing speed",
+    link: "https://github.com/ahmedkhaleel2004/leftright",
+  },
+  {
     title: "DeepEnd",
     desc: "GDSC Solution Winner: A GPT-4 powered programming project copilot using project based learning",
     summary: "GDG @ McMaster Winner, programming project copilot",

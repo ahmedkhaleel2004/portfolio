@@ -188,10 +188,12 @@ export default function Home() {
             className="mb-8"
             style={{ contentVisibility: "auto", containIntrinsicSize: "160px" }}
           >
-            <h2 className="mb-2 text-xl font-bold">Awards</h2>
+            <h2 className="mb-2 text-xl font-bold">
+              Awards &amp; Recognition
+            </h2>
             <div className="space-y-1 text-sm">
+              <p>Neo Scholar Finalist, 2025</p>
               <p>DeltaHacks X Prize Winner</p>
-              <p>Engineering Award of Excellence</p>
               <p>First Place @ Google Solution Challenge McMaster</p>
               <p>First Place @ McMaster Engineering Competition 2022</p>
             </div>
