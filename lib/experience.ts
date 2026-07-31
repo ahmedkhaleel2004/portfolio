@@ -7,6 +7,12 @@ interface Position {
 
 export const positions: Position[] = [
   {
+    title: "Software Engineer Intern",
+    company: "Microsoft",
+    date: "Jun. 2026 - Aug. 2026",
+    desc: "Building software for Microsoft Commerce Platforms in Redmond, Washington.",
+  },
+  {
     title: "Founder",
     company: "GitDiagram",
     date: "Jan. 2025 - Present",
