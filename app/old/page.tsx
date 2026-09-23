@@ -37,7 +37,7 @@ function Home() {
         >
           GitDiagram
         </a>{" "}
-        to 300,000+ users and 15,000+ stars ⭐.
+        to 400,000+ users and 17,000+ stars ⭐.
       </p>
       <p className="mb-6">
         When I&apos;m not clicking on virtual heads 🎮 and improving myself 💪🏼,
