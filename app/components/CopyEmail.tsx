@@ -42,7 +42,7 @@ const CopyEmail = () => {
         type="button"
         onClick={handleCopy}
         aria-label="Copy email address"
-        className="cursor-pointer text-gray-400 hover:underline"
+        className="light:text-gray-600 cursor-pointer text-gray-400 hover:underline"
       >
         {siteConfig.email}
       </button>

@@ -128,13 +128,13 @@ export default function Home() {
                           {project.title === "Portfolio" && (
                             <Link
                               href="/old"
-                              className="text-sm text-gray-400 underline"
+                              className="light:text-gray-500 text-sm text-gray-400 underline"
                             >
                               [old]
                             </Link>
                           )}
                         </div>
-                        <span className="min-w-0 text-sm text-neutral-400 md:flex-1 md:truncate">
+                        <span className="light:text-neutral-600 min-w-0 text-sm text-neutral-400 md:flex-1 md:truncate">
                           <span className="hidden md:inline">- </span>
                           {project.summary}
                         </span>
@@ -168,13 +168,13 @@ export default function Home() {
                         <span className="text-base font-semibold md:text-sm">
                           {position.title}
                         </span>
-                        <span className="min-w-0 text-sm text-neutral-400 md:flex-1 md:truncate">
+                        <span className="light:text-neutral-600 min-w-0 text-sm text-neutral-400 md:flex-1 md:truncate">
                           <span className="hidden md:inline">- </span>
                           {position.company}
                         </span>
                       </div>
                     </div>
-                    <span className="text-sm whitespace-nowrap text-gray-400 md:text-xs">
+                    <span className="light:text-gray-500 text-sm whitespace-nowrap text-gray-400 md:text-xs">
                       {position.date}
                     </span>
                   </div>
@@ -188,9 +188,7 @@ export default function Home() {
             className="mb-8"
             style={{ contentVisibility: "auto", containIntrinsicSize: "160px" }}
           >
-            <h2 className="mb-2 text-xl font-bold">
-              Awards &amp; Recognition
-            </h2>
+            <h2 className="mb-2 text-xl font-bold">Awards &amp; Recognition</h2>
             <div className="space-y-1 text-sm">
               <p>Neo Scholar Finalist, 2025</p>
               <p>DeltaHacks X Prize Winner</p>

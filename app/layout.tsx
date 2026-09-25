@@ -57,8 +57,11 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  colorScheme: "dark",
-  themeColor: portfolioBackground,
+  colorScheme: "dark light",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: portfolioBackground },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+  ],
 };
 
 const robotoMono = Roboto_Mono({
@@ -74,15 +77,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={robotoMono.variable}
-      style={{ backgroundColor: portfolioBackground, colorScheme: "dark" }}
-    >
-      <body
-        className="bg-body-grey min-h-screen text-white"
-        style={{ backgroundColor: portfolioBackground, color: "#ffffff" }}
-      >
+    <html lang="en" className={robotoMono.variable}>
+      <body className="min-h-screen">
         <div className="mx-auto mt-5 max-w-3xl sm:mt-10 sm:flex">
           {children}
         </div>
