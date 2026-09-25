@@ -12,3 +12,102 @@ body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+@keyframes type {
+  from {
+    max-width: 0;
+  }
+  to {
+    max-width: 6ch;
+  }
+}
+
+@keyframes term-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Theme tokens: dark by default, light when the OS prefers it. */
+:root {
+  color-scheme: light dark;
+  --bg: rgb(18, 18, 18);
+  --fg: #ffffff;
+  --fg-2: #d4d4d4;
+  --muted: #a3a3a3;
+  --subtle: #737373;
+  --faint: #525252;
+  --line: rgba(255, 255, 255, 0.1);
+  --line-soft: rgba(255, 255, 255, 0.06);
+  --hover: rgba(255, 255, 255, 0.05);
+  --surface: #1c1c1c;
+  --accent: #61a8ff;
+  --accent-bg: #61a8ff;
+}
+
+:root:has(.theme-split) {
+  --bg: #111111;
+}
+
+:root:has(.theme-editorial) {
+  --bg: #0a0a0a;
+  --fg-2: #ededed;
+  --surface: #141414;
+  --accent: #ff3d2e;
+}
+
+:root:has(.theme-terminal) {
+  --bg: #0b0a08;
+  --fg: #f2ecdd;
+  --muted: #8a8170;
+  --faint: #5c5547;
+  --line: #2a261f;
+  --accent: #ffb000;
+  --accent-bg: #ffb000;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not(:has(.theme-old)) {
+    --bg: #ffffff;
+    --fg: #0a0a0a;
+    --fg-2: #262626;
+    --muted: #525252;
+    --subtle: #6b6b6b;
+    --faint: #a3a3a3;
+    --line: rgba(0, 0, 0, 0.1);
+    --line-soft: rgba(0, 0, 0, 0.07);
+    --hover: rgba(0, 0, 0, 0.04);
+    --surface: #f3f3f3;
+    --accent: #0a66d8;
+    --accent-bg: #0a66d8;
+  }
+
+  :root:has(.theme-editorial) {
+    --fg-2: #1f1f1f;
+    --surface: #f2f2f2;
+    --accent: #e0261a;
+  }
+
+  :root:has(.theme-terminal) {
+    --bg: #ffffff;
+    --fg: #1c1a16;
+    --muted: #6b6352;
+    --faint: #a39a88;
+    --line: #e7e2d6;
+    --accent: #b86e00;
+    --accent-bg: #ffb000;
+  }
+}
+
+:root:has(.theme-old) {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+}

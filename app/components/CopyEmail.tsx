@@ -42,12 +42,12 @@ const CopyEmail = () => {
         type="button"
         onClick={handleCopy}
         aria-label="Copy email address"
-        className="cursor-pointer text-gray-400 hover:underline"
+        className="cursor-pointer text-(--muted) hover:underline"
       >
         {siteConfig.email}
       </button>
       {status !== "idle" && (
-        <span role="status" className="ml-2 text-xs text-neutral-500">
+        <span role="status" className="ml-2 text-xs text-(--subtle)">
           {status === "copied" ? "copied" : "copy failed"}
         </span>
       )}

@@ -133,15 +133,13 @@ export default function PreviewTooltip({
             id={tooltipId}
             ref={tooltipRef}
             role="tooltip"
-            className="pointer-events-none fixed z-[9999] hidden w-72 rounded-lg bg-neutral-900 p-5 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.5),0_0_5px_rgba(0,0,0,0.2)] ring-1 ring-white/10 ring-inset sm:w-96 md:block"
+            className="pointer-events-none fixed z-[9999] hidden w-72 rounded-lg bg-(--surface) p-5 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.5),0_0_5px_rgba(0,0,0,0.2)] ring-1 ring-(--line) ring-inset sm:w-96 md:block"
             style={{ top: 16, left: 16 }}
           >
             <div className="mb-3">
               <h3 className="text-base font-semibold">{title}</h3>
-              {subtitle && (
-                <p className="text-sm text-neutral-400">{subtitle}</p>
-              )}
-              <p className="mt-2 text-sm text-neutral-300">{description}</p>
+              {subtitle && <p className="text-sm text-(--muted)">{subtitle}</p>}
+              <p className="mt-2 text-sm text-(--fg-2)">{description}</p>
             </div>
 
             {imageSrc && (

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function OldLayout({ children }: { children: ReactNode }) {
   return (
-    <>
+    <div className="theme-old mx-auto mt-5 max-w-3xl sm:mt-10 sm:flex">
       <div className="fixed top-0 right-0 left-0 z-50 bg-white px-4 py-2 text-center text-base font-semibold text-black shadow-md">
         You are viewing my old portfolio. Check out{" "}
         <Link href="/" className="text-blue-600 underline hover:text-blue-700">
@@ -28,6 +28,6 @@ export default function OldLayout({ children }: { children: ReactNode }) {
           <Footer />
         </div>
       </div>
-    </>
+    </div>
   );
 }

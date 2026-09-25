@@ -1,6 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { Roboto_Mono } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Instrument_Serif,
+  Roboto_Mono,
+} from "next/font/google";
 import { siteConfig } from "@/lib/site";
 
 const portfolioBackground = "rgb(18, 18, 18)";
@@ -57,8 +62,11 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  colorScheme: "dark",
-  themeColor: portfolioBackground,
+  colorScheme: "dark light",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: portfolioBackground },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+  ],
 };
 
 const robotoMono = Roboto_Mono({
@@ -66,6 +74,26 @@ const robotoMono = Roboto_Mono({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-roboto-mono",
+});
+
+const geist = Geist({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-geist",
+});
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-geist-mono",
+});
+
+const instrumentSerif = Instrument_Serif({
+  weight: "400",
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-instrument-serif",
 });
 
 export default function RootLayout({
@@ -76,17 +104,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={robotoMono.variable}
-      style={{ backgroundColor: portfolioBackground, colorScheme: "dark" }}
+      className={`${robotoMono.variable} ${geist.variable} ${geistMono.variable} ${instrumentSerif.variable}`}
     >
-      <body
-        className="bg-body-grey min-h-screen text-white"
-        style={{ backgroundColor: portfolioBackground, color: "#ffffff" }}
-      >
-        <div className="mx-auto mt-5 max-w-3xl sm:mt-10 sm:flex">
-          {children}
-        </div>
-      </body>
+      <body className="min-h-screen">{children}</body>
     </html>
   );
 }
