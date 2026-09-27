@@ -15,6 +15,13 @@ export const projects: Project[] = [
     image: "/gitdiagram.png",
   },
   {
+    title: "BlitzTree",
+    desc: "A fast, native disk-space treemap for macOS, in the spirit of WizTree. Scans a whole Mac (3.6M files) in about 14 seconds.",
+    summary: "WizTree for macOS, fast native disk-space treemap",
+    link: "https://github.com/ahmedkhaleel2004/blitztree",
+    image: "/blitztree.png",
+  },
+  {
     title: "LeftRight",
     desc: "A typing test that measures each hand's WPM, accuracy, and balance across multiple keyboard layouts.",
     summary: "Compare left vs. right hand typing speed",

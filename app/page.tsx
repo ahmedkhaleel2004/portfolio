@@ -75,7 +75,8 @@ export default function Home() {
               McMaster University.
             </p>
             <p className="mt-4 text-sm">
-              If you are hiring, reach out via email!
+              I&apos;m looking to start on something new. If you are hiring,
+              reach out via email!
             </p>
             <div className="mt-4 flex gap-4 text-sm">
               <a
