@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Ahmed Khaleel",
-  title: "Ahmed Khaleel — Software Engineer",
+  title: "Ahmed Khaleel",
   description:
     "Ahmed Khaleel is a Toronto software engineer and founder of GitDiagram. Explore his projects, experience, and awards.",
   url: "https://ahmedkhaleel.com",
