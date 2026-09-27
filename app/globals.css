@@ -9,24 +9,74 @@
   }
 }
 
-/* Dark by default; follow the system when it prefers light. /old stays dark. */
+/* Warm palette. Dark by default; follow the system when it prefers light. */
+:root {
+  --page: #171512;
+  --fg: #ede8df;
+  --accent: #d9a55b;
+  --tagline: #7d766c;
+  --muted: #a39b8f;
+  --meta: #8a8378;
+  --email: #a39b8f;
+  --card: #211e1a;
+  --card-subtitle: #a39b8f;
+  --card-body: #d6cfc3;
+  --card-ring: rgb(255 240 220 / 0.08);
+  --card-media: #2b2722;
+  --card-shadow:
+    0 10px 30px -5px rgba(0, 0, 0, 0.5), 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+@media (prefers-color-scheme: light) {
+  html:not(:has(.old-portfolio)) {
+    --page: #f7f4ee;
+    --fg: #1d1a16;
+    --accent: #b7792a;
+    --tagline: #857d71;
+    --muted: #5e574d;
+    --meta: #7a7266;
+    --email: #5e574d;
+    --card: #fffdf9;
+    --card-subtitle: #857d71;
+    --card-body: #3d3831;
+    --card-ring: rgb(60 40 10 / 0.1);
+    --card-media: #ece6db;
+    --card-shadow:
+      0 10px 30px -5px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.06);
+    color-scheme: light;
+  }
+}
+
+/* /old keeps its original look. */
+html:has(.old-portfolio) {
+  --page: rgb(18, 18, 18);
+  --fg: #ffffff;
+}
+
+@theme inline {
+  --color-page: var(--page);
+  --color-fg: var(--fg);
+  --color-accent: var(--accent);
+  --color-tagline: var(--tagline);
+  --color-muted: var(--muted);
+  --color-meta: var(--meta);
+  --color-email: var(--email);
+  --color-card: var(--card);
+  --color-card-subtitle: var(--card-subtitle);
+  --color-card-body: var(--card-body);
+  --color-card-ring: var(--card-ring);
+  --color-card-media: var(--card-media);
+}
+
 html {
   color-scheme: dark;
-  background-color: rgb(18, 18, 18);
-  color: #ffffff;
+  background-color: var(--page);
+  color: var(--fg);
 }
 
 body {
   background-color: inherit;
   color: inherit;
-}
-
-@media (prefers-color-scheme: light) {
-  html:not(:has(.old-portfolio)) {
-    color-scheme: light;
-    background-color: #ffffff;
-    color: #0a0a0a;
-  }
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

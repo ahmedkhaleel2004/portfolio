@@ -3,7 +3,7 @@ import "./globals.css";
 import { Roboto_Mono } from "next/font/google";
 import { siteConfig } from "@/lib/site";
 
-const portfolioBackground = "rgb(18, 18, 18)";
+const portfolioBackground = "#171512";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -60,7 +60,7 @@ export const viewport: Viewport = {
   colorScheme: "dark light",
   themeColor: [
     { media: "(prefers-color-scheme: dark)", color: portfolioBackground },
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: light)", color: "#f7f4ee" },
   ],
 };
 

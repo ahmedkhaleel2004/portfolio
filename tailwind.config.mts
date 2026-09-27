@@ -20,7 +20,7 @@ const config: Config = {
           },
           "100%": {
             opacity: "1",
-            filter: "blur(0px)",
+            filter: "none",
           },
         },
       },
