@@ -9,24 +9,66 @@
   }
 }
 
-/* Dark by default; follow the system when it prefers light. /old stays dark. */
+/* Palette. Dark by default; follow the system when it prefers light. /old stays dark. */
+:root {
+  --page: rgb(18, 18, 18);
+  --fg: #ffffff;
+  --accent: currentColor;
+  --tagline: oklch(55.6% 0 none);
+  --muted: oklch(70.8% 0 none);
+  --meta: oklch(70.7% 0.022 261.325);
+  --email: oklch(70.7% 0.022 261.325);
+  --card: oklch(20.5% 0 none);
+  --card-subtitle: oklch(70.8% 0 none);
+  --card-body: oklch(87% 0 none);
+  --card-ring: rgb(255 255 255 / 0.1);
+  --card-media: oklch(26.9% 0 none);
+  --card-shadow:
+    0 10px 30px -5px rgba(0, 0, 0, 0.5), 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+@media (prefers-color-scheme: light) {
+  html:not(:has(.old-portfolio)) {
+    --page: #ffffff;
+    --fg: #0a0a0a;
+    --muted: oklch(43.9% 0 none);
+    --meta: oklch(55.1% 0.027 264.364);
+    --email: oklch(44.6% 0.03 256.802);
+    --card: #ffffff;
+    --card-subtitle: oklch(55.6% 0 none);
+    --card-body: oklch(37.1% 0 none);
+    --card-ring: rgb(0 0 0 / 0.1);
+    --card-media: oklch(97% 0 none);
+    --card-shadow:
+      0 10px 30px -5px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.06);
+    color-scheme: light;
+  }
+}
+
+@theme inline {
+  --color-page: var(--page);
+  --color-fg: var(--fg);
+  --color-accent: var(--accent);
+  --color-tagline: var(--tagline);
+  --color-muted: var(--muted);
+  --color-meta: var(--meta);
+  --color-email: var(--email);
+  --color-card: var(--card);
+  --color-card-subtitle: var(--card-subtitle);
+  --color-card-body: var(--card-body);
+  --color-card-ring: var(--card-ring);
+  --color-card-media: var(--card-media);
+}
+
 html {
   color-scheme: dark;
-  background-color: rgb(18, 18, 18);
-  color: #ffffff;
+  background-color: var(--page);
+  color: var(--fg);
 }
 
 body {
   background-color: inherit;
   color: inherit;
-}
-
-@media (prefers-color-scheme: light) {
-  html:not(:has(.old-portfolio)) {
-    color-scheme: light;
-    background-color: #ffffff;
-    color: #0a0a0a;
-  }
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
