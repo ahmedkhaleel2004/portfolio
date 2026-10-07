@@ -3,7 +3,7 @@ const positions = [
     title: "Founder",
     company: "GitDiagram",
     date: "Jan. 2025 - Present",
-    desc: "Instantly visualize any GitHub repository as an interactive diagram. 475,000+ users, 18k stars.",
+    desc: "Instantly visualize any GitHub repository as an interactive diagram. 475,000+ users, 18k+ stars.",
   },
   {
     title: "MLH Production Engineering Fellow",
