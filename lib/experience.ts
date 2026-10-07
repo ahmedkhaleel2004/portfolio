@@ -16,7 +16,7 @@ export const positions: Position[] = [
     title: "Founder",
     company: "GitDiagram",
     date: "Jan. 2025 - Present",
-    desc: "Instantly visualize any GitHub repository as an interactive diagram. 475,000+ users, 17,900+ stars.",
+    desc: "Instantly visualize any GitHub repository as an interactive diagram. 475,000+ users, 18k stars.",
   },
   {
     title: "Software Engineer Intern",
