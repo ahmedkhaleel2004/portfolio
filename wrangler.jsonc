@@ -6,12 +6,6 @@
   "account_id": "8a4f309f2639721dc9f4f0d1790fd6d5",
   "compatibility_date": "2026-10-01",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
-  // The site's addresses. www answers with a redirect to the bare domain
-  // (cloudflare-worker.mjs).
-  "routes": [
-    { "pattern": "ahmedkhaleel.com", "custom_domain": true },
-    { "pattern": "www.ahmedkhaleel.com", "custom_domain": true },
-  ],
   // Also keeps the Worker reachable at its workers.dev address for testing.
   "workers_dev": true,
   "assets": {
