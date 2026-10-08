@@ -1,0 +1,72 @@
+name: Deploy
+
+# Builds the site with OpenNext and deploys it to the Cloudflare Worker
+# `portfolio`, which serves ahmedkhaleel.com.
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "*.md"
+  # Dependabot pull requests are merged by a workflow, and a merge made that
+  # way starts no push run, so the deploy follows that workflow instead.
+  workflow_run:
+    workflows:
+      - Dependabot Auto Merge
+    types:
+      - completed
+  workflow_dispatch:
+
+# One deploy at a time, in order; a running deploy is never cancelled halfway.
+concurrency:
+  group: cloudflare-deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Skip unless Dependabot's merge is the newest commit
+        id: gate
+        run: |
+          if [ "${{ github.event_name }}" != "workflow_run" ]; then
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
+          elif git log -1 --format=%an | grep -qi dependabot; then
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Newest commit is not a Dependabot merge; its own push deploys it."
+            echo "deploy=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set up Bun
+        if: steps.gate.outputs.deploy == 'true'
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: package.json
+
+      - name: Install dependencies
+        if: steps.gate.outputs.deploy == 'true'
+        run: bun install --frozen-lockfile
+
+      - name: Build and deploy
+        if: steps.gate.outputs.deploy == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: 8a4f309f2639721dc9f4f0d1790fd6d5
+          # Public values compiled into the page's analytics script.
+          NEXT_PUBLIC_POSTHOG_TOKEN: ${{ vars.NEXT_PUBLIC_POSTHOG_TOKEN }}
+          NEXT_PUBLIC_POSTHOG_HOST: ${{ vars.NEXT_PUBLIC_POSTHOG_HOST }}
+        run: |
+          if [ -z "$NEXT_PUBLIC_POSTHOG_TOKEN" ] || [ -z "$NEXT_PUBLIC_POSTHOG_HOST" ]; then
+            echo "The PostHog repository variables are missing; refusing to deploy a site without analytics."
+            exit 1
+          fi
+          bun run cf:deploy
