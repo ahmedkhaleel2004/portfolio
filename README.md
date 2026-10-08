@@ -29,9 +29,12 @@ build time and ships with the Worker's static files.
   GitHub Actions reads them from the repository variables
   `NEXT_PUBLIC_POSTHOG_TOKEN` and `NEXT_PUBLIC_POSTHOG_HOST`.
 - **Domain:** registered at Vercel, with Cloudflare's nameservers. DNS is
-  managed in the Cloudflare zone `ahmedkhaleel.com`.
+  managed in the Cloudflare zone `ahmedkhaleel.com`: the proxied records for
+  the bare domain and `www` send every request to the Worker's routes.
 - **Roll back a deploy:** `bunx wrangler rollback`.
 
-The Vercel project `portfolio` still builds every push and is the fallback.
-To go back to it, set the domain's nameservers at Vercel back to
-`ns1.vercel-dns.com` and `ns2.vercel-dns.com`.
+The Vercel project `portfolio` still builds every push and is the fallback:
+the DNS records still name Vercel's addresses behind Cloudflare. To go back
+to it, switch those two records to "DNS only" in Cloudflare, or set the
+domain's nameservers at Vercel back to `ns1.vercel-dns.com` and
+`ns2.vercel-dns.com`.
