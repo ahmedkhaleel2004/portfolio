@@ -1,7 +1,6 @@
 import posthogConfig from "./posthog.config";
 
-const posthogToken =
-  process.env.NEXT_PUBLIC_POSTHOG_TOKEN ?? process.env.NEXT_PUBLIC_POSTHOG_KEY;
+const posthogToken = process.env.NEXT_PUBLIC_POSTHOG_TOKEN;
 
 // Load analytics after the page is interactive so it stays off the critical path.
 const initPostHog = async () => {
