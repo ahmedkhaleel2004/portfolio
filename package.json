@@ -18,9 +18,9 @@
     "@fortawesome/fontawesome-svg-core": "^7.3.1",
     "@fortawesome/free-brands-svg-icons": "^7.3.1",
     "@fortawesome/react-fontawesome": "^3.5.0",
-    "@opennextjs/cloudflare": "1.20.12",
+    "@opennextjs/cloudflare": "1.20.13",
     "next": "^16.4.2",
-    "posthog-js": "^1.438.12",
+    "posthog-js": "^1.438.14",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-icons": "^5.7.0"
@@ -32,18 +32,18 @@
     "@types/react-dom": "^19.3.0",
     "eslint": "9.39.5",
     "eslint-config-next": "^16.4.2",
-    "postcss": "^8.5.30",
+    "postcss": "^8.5.31",
     "prettier": "^3.9.10",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3",
-    "wrangler": "4.151.1"
+    "wrangler": "4.151.3"
   },
   "overrides": {
     "@babel/core": "7.29.7",
-    "dompurify": "3.4.12",
-    "flatted": "3.4.2",
-    "js-yaml": "4.3.0",
-    "typescript-eslint": "8.63.0"
+    "dompurify": "3.4.17",
+    "flatted": "3.4.4",
+    "js-yaml": "4.3.2",
+    "typescript-eslint": "8.72.0"
   }
 }
