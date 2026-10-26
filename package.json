@@ -20,7 +20,7 @@
     "@fortawesome/react-fontawesome": "^3.5.0",
     "@opennextjs/cloudflare": "1.20.13",
     "next": "^16.4.2",
-    "posthog-js": "^1.438.14",
+    "posthog-js": "^1.438.19",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-icons": "^5.7.0"
@@ -37,7 +37,7 @@
     "prettier-plugin-tailwindcss": "^0.8.1",
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3",
-    "wrangler": "4.151.3"
+    "wrangler": "4.152.0"
   },
   "overrides": {
     "@babel/core": "7.29.7",
